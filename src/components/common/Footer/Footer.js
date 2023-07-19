@@ -19,7 +19,7 @@ const Footer = () => {
              {/* <img id="logo" src={logo} className="img" alt="..." /> */}
      
             <h4 className="display-8" id="nome" >Sistema de Gestão de Carteira</h4>
-            <h4 className="display-9" id="tagline">Half-Blood Prince System Developer™</h4>     </a>
+            <h4 className="display-9" id="tagline">Half-Blood Dev™</h4>     </a>
           </div>
           <div className="col-md-3 col-sm-6">
             <h4 className="footer-heading">Redes Sociais</h4>

@@ -13,7 +13,7 @@ const Navbar = () => {
           {/* <img src={logo} className="img" alt="..." /> */}
           <h4 className="display-8" id="nome">Sistema de Gestão de Carteira
           </h4>
-          <h4 className="display-9" id="tagline">Half-Blood Prince System Developer™</h4>
+          <h4 className="display-9" id="tagline">Half-Blood Dev™</h4>
         </a>
 
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">

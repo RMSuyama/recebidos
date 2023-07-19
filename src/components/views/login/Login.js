@@ -34,7 +34,7 @@ function Login() {
 
   return (
     <div className="cardLog text-center">
-      <div className="SPRT">HalfBlood Dev</div>      
+      <div className="SPRT">HalfBlood Dev™</div>      
       <div className="cardLog-header">
         <ul className="nav nav-tabs card-header-tabs">
           <li className="nav-item">
