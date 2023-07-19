@@ -33,47 +33,55 @@ function Login() {
   }
 
   return (
-    <div className="cardLog text-center">
-      <div className="SPRT">HalfBlood Dev™</div>      
-      <div className="cardLog-header">
-        <ul className="nav nav-tabs card-header-tabs">
-          <li className="nav-item">
-            <a className="nav-link active" aria-current="true" href="#">
-              Login
-            </a>
-          </li>
-
-          <li className="nav-item">
-            <a className="nav-link" href="#">
-              Novo Cadastro
-            </a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#">
-              Esqueci a senha
-            </a>
-          </li>
-        </ul>
-      </div>
-
-      <div className="cardLog-body">
-        <input
-          onChange={alterarEmail}
-          className="form-control me-2"
-          type="email"
-          placeholder="E-mail"
-          aria-label="E-mail"
-        />
-        <input
-          onChange={alterarSenha}
-          className="form-control me-2"
-          type="password"
-          placeholder="Senha"
-          aria-label="Senha"
-        />
-        <button className="btn btn-outline-success" type="submit" onClick={LoginUsuario}>
-          Acessar
-        </button>
+    <div className="container">
+      <div className="row justify-content-center align-items-center vh-100">
+        <div className="col-md-4">
+          <div className="card text-center">
+            <div className="card-header">
+            <h4 className="mb-0 text-danger">Halfblood Dev™</h4>
+              <ul className="nav nav-tabs card-header-tabs">
+                <li className="nav-item">
+                  <a className="nav-link active" aria-current="true" href="#">
+                    Login
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" href="#">
+                    Novo Cadastro
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" href="#">
+                    Esqueci a senha
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div className="card-body">
+              <input
+                onChange={alterarEmail}
+                className="form-control me-2"
+                type="email"
+                placeholder="E-mail"
+                aria-label="E-mail"
+              />
+              <input
+                onChange={alterarSenha}
+                className="form-control me-2"
+                type="password"
+                placeholder="Senha"
+                aria-label="Senha"
+              />
+              <button
+                className="btn btn-outline-success"
+                type="submit"
+                onClick={LoginUsuario}
+              >
+                Acessar
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

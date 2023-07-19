@@ -31,7 +31,7 @@ const Navbar = () => {
               <Link className="nav-link" to="/dashboard" style={{ color: 'black', textDecoration: 'none' }}>Dashboard</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/suporte" style={{ color: 'black', textDecoration: 'none' }}>Suporte </Link>
+              <Link className="nav-link" to="/suporte" style={{ color: 'black', textDecoration: 'none' }}>Suporte ao usuário </Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/privacidade" style={{ color: 'black', textDecoration: 'none' }}>Política de Privacidade</Link>
