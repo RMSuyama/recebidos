@@ -11,7 +11,7 @@ const Navbar = () => {
 
         <a className="navbar-brand" href="/home">
           {/* <img src={logo} className="img" alt="..." /> */}
-          <h4 className="display-8" id="nome">Sistema de Gestão de Carteira
+          <h4 className="display-8" id="nome">Sistema de Gestão
           </h4>
           <h4 className="display-9" id="tagline">Half-Blood Dev™</h4>
         </a>
