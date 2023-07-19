@@ -1,0 +1,41 @@
+.SPRT{
+  font-size: large;
+  font-weight: bold;
+  padding-bottom: 10%;
+}
+
+.cardLog {
+    width: 50vw;
+    margin: 0 auto;
+    margin-top: 50px;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+  }
+  
+  .cardLog-header {
+    background-color: #f8f9fa;
+    border-bottom: none;
+  }
+  
+  .nav-tabs .nav-item {
+    margin-bottom: 10px;
+  }
+  
+  .nav-link.active {
+    font-weight: bold;
+  }
+  
+  .cardLog-body {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-control {
+    margin-bottom: 10px;
+  }
+  
+  .btn {
+    width: 100%;
+  }
+  
