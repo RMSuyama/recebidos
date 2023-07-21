@@ -9,7 +9,8 @@ import Chartgeral from '../views/homeChart/chartgeral';
 const Dashboard = () => {
   return (
     <div>
-      <Navbar />      
+      <Navbar />    
+
       <HomeView />
       <Chartgeral />
       <Footer />
