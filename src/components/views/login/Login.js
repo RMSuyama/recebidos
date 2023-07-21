@@ -38,23 +38,14 @@ function Login() {
         <div className="col-md-4">
           <div className="card text-center">
             <div className="card-header">
-            <h4 className="mb-0 text-danger">Halfblood Dev™</h4>
+            <h4 className="mb-0 text-danger p-5">Halfblood Dev™</h4>
               <ul className="nav nav-tabs card-header-tabs">
                 <li className="nav-item">
                   <a className="nav-link active" aria-current="true" href="#">
                     Login
                   </a>
                 </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="#">
-                    Novo Cadastro
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="#">
-                    Esqueci a senha
-                  </a>
-                </li>
+
               </ul>
             </div>
             <div className="card-body">
