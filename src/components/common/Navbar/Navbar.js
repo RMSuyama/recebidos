@@ -34,7 +34,7 @@ const Navbar = () => {
               <Link className="nav-link" to="/suporte" style={{ color: 'black', textDecoration: 'none' }}>Suporte ao usuário </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/privacidade" style={{ color: 'black', textDecoration: 'none' }}>Política de Privacidade</Link>
+              <Link className="nav-link" to="/calculadora" style={{ color: 'black', textDecoration: 'none' }}>Calculadora de Prazos</Link>
             </li>
           </ul>
         </div>

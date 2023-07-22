@@ -8,7 +8,7 @@ import Carteira from "../pages/Carteira";
 import Colaboradores from "../pages/Colaboradores";
 import Dashboard from "../pages/Dashboard";
 import Suporte from "../pages/Suporte";
-import Privacidade from "../pages/Privacidade";
+import Calculadora from "../pages/Calculadora";
 
 const Rotas = () => {
   return (
@@ -20,7 +20,7 @@ const Rotas = () => {
         <Route path="/colaboradores" element={<Colaboradores />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/suporte" element={<Suporte />} />
-        <Route path="/privacidade" element={<Privacidade />} />
+        <Route path="/calculadora" element={<Calculadora />} />
 
       </Routes>
     </BrowserRouter>

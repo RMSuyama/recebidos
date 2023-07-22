@@ -15,7 +15,7 @@ const Footer = () => {
       <div className="container">
         <div className="row align-items-center">
           <div className="col-md-3 col-sm-6">
-          <a className="navbar-brand" href="/">
+          <a className="navbar-brand" href="/home">
              {/* <img id="logo" src={logo} className="img" alt="..." /> */}
      
             <h4 className="display-8" id="nome" >Sistema de Gestão de Carteira</h4>

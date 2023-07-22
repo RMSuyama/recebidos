@@ -48,6 +48,28 @@ const feriadosMiracatu = {
     "2023-12-29": "Recesso Forense - Art. 116, § 2º do RITJSP",
     "2023-12-30": "Recesso Forense - Art. 116, § 2º do RITJSP",
     "2023-12-31": "Recesso Forense - Art. 116, § 2º do RITJSP",
+    "2024-01-01": "Recesso Forense - Art. 116, § 2º do RITJSP",
+    "2024-01-02": "Recesso Forense - Art. 116, § 2º do RITJSP",
+    "2024-01-03": "Recesso Forense - Art. 116, § 2º do RITJSP",
+    "2024-01-04": "Recesso Forense - Art. 116, § 2º do RITJSP",
+    "2024-01-05": "Recesso Forense - Art. 116, § 2º do RITJSP",
+    "2024-01-06": "Recesso Forense - Art. 116, § 2º do RITJSP",
+    "2024-01-07": "Suspensão dos prazos processuais - Art. 116, § 2º do RITJSP",
+    "2024-01-08": "Suspensão dos prazos processuais - Art. 116, § 2º do RITJSP",
+    "2024-01-09": "Suspensão dos prazos processuais - Art. 116, § 2º do RITJSP",
+    "2024-01-10": "Suspensão dos prazos processuais - Art. 116, § 2º do RITJSP",
+    "2024-01-11": "Suspensão dos prazos processuais - Art. 116, § 2º do RITJSP",
+    "2024-01-12": "Suspensão dos prazos processuais - Art. 116, § 2º do RITJSP",
+    "2024-01-13": "Suspensão dos prazos processuais - Art. 116, § 2º do RITJSP",
+    "2024-01-14": "Suspensão dos prazos processuais - Art. 116, § 2º do RITJSP",
+    "2024-01-15": "Suspensão dos prazos processuais - Art. 116, § 2º do RITJSP",
+    "2024-01-16": "Suspensão dos prazos processuais - Art. 116, § 2º do RITJSP",
+    "2024-01-17": "Suspensão dos prazos processuais - Art. 116, § 2º do RITJSP",
+    "2024-01-18": "Suspensão dos prazos processuais - Art. 116, § 2º do RITJSP",
+    "2024-01-19": "Suspensão dos prazos processuais - Art. 116, § 2º do RITJSP",
+    "2024-01-20": "Suspensão dos prazos processuais - Art. 116, § 2º do RITJSP",
+
+
   };
   
   export default feriadosMiracatu;

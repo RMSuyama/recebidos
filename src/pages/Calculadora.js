@@ -6,7 +6,7 @@ import CalcPrazo from '../components/views/calculadoradeprazos/calculadora';
 
 
 
-const Privacidade = () => {
+const Calculadora = () => {
   return (
     <div>
       <Navbar />      
@@ -17,4 +17,4 @@ const Privacidade = () => {
   );
 }
 
-export default Privacidade;
+export default Calculadora;

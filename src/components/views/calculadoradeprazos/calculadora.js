@@ -4,16 +4,27 @@ import comarca from "./comarca";
 import feriadosJuquia from "./feriados/juquia";
 import feriadosMiracatu from "./feriados/miracatu";
 import feriadosRegistro from "./feriados/registro";
-import AlertModal from "./alertmodal";
+import { Modal, Button } from "react-bootstrap";
 
 const parseDateString = (dateString) => {
   const [year, month, day] = dateString.split("-");
   return new Date(year, month - 1, day); // Mês é zero-indexed no objeto Date
 };
 
-const formatDate = (dateString) => {
-  const [year, month, day] = dateString.split("-");
-  return `${day}-${month}-${year}`;
+const AlertModal = ({ show, onClose, message }) => {
+  return (
+    <Modal show={show} onHide={onClose}>
+      <Modal.Header closeButton>
+        <Modal.Title>Alerta</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>{message}</Modal.Body>
+      <Modal.Footer>
+        <Button variant="primary" onClick={onClose}>
+          Fechar
+        </Button>
+      </Modal.Footer>
+    </Modal>
+  );
 };
 
 const CalcPrazo = () => {
@@ -49,15 +60,18 @@ const CalcPrazo = () => {
     return holidays[formattedDate] !== undefined;
   };
 
-  const isBusinessDay = (date, holidays) => {
-    // Verificar se é fim de semana (sábado ou domingo)
-    if (date.getDay() === 0 || date.getDay() === 6) {
-      return false;
-    }
+  const isWeekend = (date) => {
+    const day = date.getDay();
+    return day === 0 || day === 6;
+  };
 
-    // Verificar se é feriado
-    const formattedDate = date.toISOString().slice(0, 10);
-    return holidays[formattedDate] === undefined;
+  const isBusinessDay = (date, holidays) => {
+    return !isWeekend(date) && !isHoliday(date, holidays);
+  };
+
+  const formatDate = (dateString) => {
+    const [year, month, day] = dateString.split("-");
+    return `${day}-${month}-${year}`;
   };
 
   const calculateDeadline = (initialDate, days, city) => {
@@ -73,13 +87,16 @@ const CalcPrazo = () => {
         feriados = feriadosJuquia;
         break;
       default:
-        showAlertMessage("Por favor, selecione uma cidade válida.");
+        setShowAlert(true);
+        setAlertMessage("Por favor, selecione uma cidade válida.");
         return null;
     }
 
     const startDate = parseDateString(initialDate);
     let currentDate = new Date(startDate);
     let count = 0;
+    let holidaysCount = 0;
+    let weekendsCount = 0;
 
     while (count < days) {
       // Avançar para o próximo dia
@@ -88,11 +105,31 @@ const CalcPrazo = () => {
       // Verificar se a data atual é dia útil (não é fim de semana nem feriado)
       if (isBusinessDay(currentDate, feriados)) {
         count++;
+      } else {
+        if (isWeekend(currentDate)) {
+          weekendsCount++;
+        } else {
+          holidaysCount++;
+        }
       }
     }
 
     // Formatar a data final para o retorno no formato "dd-mm-aaaa"
     const finalDate = formatDate(currentDate.toISOString().slice(0, 10));
+
+    const totalDays = count + weekendsCount + holidaysCount;
+
+    setShowAlert(true);
+setAlertMessage(
+  <>
+    <p><strong>Data Inicial:</strong> {formatDate(dataSelecionada)}</p>
+    <p><strong>Data Final:</strong> {finalDate}</p>
+    <p><strong>Dias úteis:</strong> {count}</p>
+    <p><strong>Finais de Semana:</strong> {weekendsCount}</p>
+    <p><strong>Feriados:</strong> {holidaysCount}</p>
+    <p><strong>Diferença Total:</strong> {totalDays} dias</p>
+  </>
+);
     return finalDate;
   };
 
@@ -103,23 +140,20 @@ const CalcPrazo = () => {
     setShowAlert(false);
   };
 
-  const showAlertMessage = (message) => {
-    setAlertMessage(message);
-    setShowAlert(true);
-  };
-
   const handleSubmit = (event) => {
     event.preventDefault();
 
     // Verificar se a comarca selecionada é válida
     if (comarcaSelecionada === "") {
-      showAlertMessage("Por favor, selecione uma cidade válida.");
+      setShowAlert(true);
+      setAlertMessage("Por favor, selecione uma cidade válida.");
       return;
     }
 
     // Verificar se a data foi selecionada
     if (dataSelecionada === "") {
-      showAlertMessage("Por favor, selecione a data de publicação antes de calcular o prazo.");
+      setShowAlert(true);
+      setAlertMessage("Por favor, selecione a data de publicação antes de calcular o prazo.");
       return;
     }
 
@@ -133,18 +167,17 @@ const CalcPrazo = () => {
       // Usar o prazo manual inserido pelo usuário
       prazoFinal = calculateDeadline(dataSelecionada, parseInt(outroPrazo), comarcaSelecionada);
     } else {
-      showAlertMessage("Por favor, selecione uma peça processual ou insira o prazo manualmente.");
+      setShowAlert(true);
+      setAlertMessage("Por favor, selecione uma peça processual ou insira o prazo manualmente.");
       return;
     }
 
     // Verificar se o prazo final é válido
     if (!prazoFinal) {
-      showAlertMessage("Não foi possível calcular o prazo final.");
+      setShowAlert(true);
+      setAlertMessage("Não foi possível calcular o prazo final.");
       return;
     }
-
-    // Exibir o resultado para o usuário com a data formatada
-    showAlertMessage(`Prazo final em dias úteis: ${prazoFinal}`);
   };
 
   const cabimentoSelecionado = opcoesPecas.find((opcao) => opcao.value === pecaProcessual)?.cabimento;
