@@ -1,31 +1,30 @@
 import React, { useEffect, useState } from 'react';
-import firebase from '../../../config/firebaseData';
+import firebase from '../../../config/firebase';
 import 'firebase/database';
 
-
 const CarteiraView = () => {
-  // const [dados, setDados] = useState([]);
+  const [dados, setDados] = useState([]);
 
-  // useEffect(() => {
-  //   // Referência para o nó (node) do Firebase que contém os dados da tabela
-  //   const databaseRef = firebase.database().ref('caminho_da_tabela');
+  useEffect(() => {
+    // Referência para o nó (node) do Firebase que contém os dados da tabela
+    const databaseRef = firebase.database().ref('carteira'); // Atualize o caminho para o nome correto da tabela
 
-  //   // Puxa os dados do Firebase uma vez, quando o componente é montado
-  //   databaseRef.once('value')
-  //     .then((snapshot) => {
-  //       // Converte o snapshot em uma matriz de objetos
-  //       const data = snapshot.val();
-  //       const dataArray = Object.entries(data || {}).map(([key, value]) => ({ id: key, ...value }));
-  //       setDados(dataArray);
-  //     })
-  //     .catch((error) => {
-  //       console.error('Erro ao puxar os dados do Firebase:', error);
-  //     });
-  // }, []);
+    // Puxa os dados do Firebase uma vez, quando o componente é montado
+    databaseRef.once('value')
+      .then((snapshot) => {
+        // Converte o snapshot em uma matriz de objetos
+        const data = snapshot.val();
+        const dataArray = Object.entries(data || {}).map(([key, value]) => ({ id: key, ...value }));
+        setDados(dataArray);
+      })
+      .catch((error) => {
+        console.error('Erro ao puxar os dados do Firebase:', error);
+      });
+  }, []);
 
   return (
     <table className="table">
-      {/* <thead>
+      <thead>
         <tr>
           <th scope="col">#</th>
           <th scope="col">First</th>
@@ -42,10 +41,9 @@ const CarteiraView = () => {
             <td>{item.handle}</td>
           </tr>
         ))}
-      </tbody> */}
+      </tbody>
     </table>
   );
 };
-
 
 export default CarteiraView;

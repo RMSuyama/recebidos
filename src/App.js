@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Rotas from '../src/components/routes/routes';
+import Rotas from '../src/routes/routes';
 
 function App() {
 

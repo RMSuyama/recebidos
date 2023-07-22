@@ -1,10 +1,10 @@
 import React from 'react';
-import Login from '../views/login/Login';
+import Login from '../components/views/login/Login';
 
 const LoginP = () => {
   return (
     <div>
-      <Login />
+    <Login />
     </div>
   );
 };
