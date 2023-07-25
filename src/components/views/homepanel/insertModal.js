@@ -5,7 +5,7 @@
         <>
           <button
             type="button"
-            className="btn btn-primary"
+            className="btn btn-danger"
             data-bs-toggle="modal"
             data-bs-target="#exampleModal"
           >
@@ -23,10 +23,10 @@
                 </div>
                 <div className="modal-body">Nessa seção inserimos novos recebimentos ou novas despesas</div>
                 <div className="modal-footer">
-                  <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">
+                  <button type="button" className="btn btn-danger" data-bs-dismiss="modal">
                     Inserir novo recebimento
                   </button>
-                  <button type="button" className="btn btn-primary" data-bs-dismiss="modal">
+                  <button type="button" className="btn btn-danger" data-bs-dismiss="modal">
                     Inserir nova despesa
                   </button>
                 </div>

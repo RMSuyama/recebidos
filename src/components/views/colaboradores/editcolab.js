@@ -50,13 +50,18 @@ const ListarColaboradores = () => {
         {filteredColaboradores.map((colaborador) => (
           <li key={colaborador.id} className="list-group-item d-flex justify-content-between align-items-center">
             {colaborador.nome}
-            <Link to={`/editar-colaborador/${colaborador.id}`} className="btn-sm btn-outline-secondary">
+            <Link to={`/editar-colaborador/${colaborador.id}`} className="btn-sm btn-outline-danger">
               Editar
             </Link>
           </li>
         ))}
       </ul>
+
+
+
+
     </div>
+
   );
 };
 

@@ -15,10 +15,6 @@ const Home = () => {
     <div>
       <Navbar />      
       <HomeView />
-      <TableColaboradores />
-      <FormColaborador />
-      <Recebido />
-      <Chartgeral />
       <Newsletter />
       <Footer />
       

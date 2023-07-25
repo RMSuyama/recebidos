@@ -90,8 +90,10 @@ const FormColaborador = () => {
           onChange={(e) => setTelefone(e.target.value)}
         />
       </div>
-      <button type="submit" className="btn btn-outline-secondary">Cadastrar</button>
+      <button type="submit" className="btn btn-outline-danger">Cadastrar</button>
     </form>
+
+
   );
 };
 

@@ -6,6 +6,7 @@ import Chartgeral from '../components/views/homeChart/chartgeral';
 import FormColaborador from '../components/views/colaboradores/formColab';
 import TableColaboradores from '../components/views/colaboradores/colabview';
 import EditColaborador from '../components/views/colaboradores/editcolab';
+import Tablepdf from '../components/views/colaboradores/generatepdf';
 
 
 
@@ -17,7 +18,7 @@ const Colaboradores = () => {
       <FormColaborador />
       <TableColaboradores />
       <EditColaborador />
-      <Chartgeral />
+      <Tablepdf />
       <Footer />
       
       </div>

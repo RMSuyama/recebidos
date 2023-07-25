@@ -253,7 +253,7 @@ setAlertMessage(
             className="form-control"
           />
         </div>
-        <button type="submit" className="btn btn-primary">
+        <button type="submit" className="btn btn-danger">
           Calcular Prazo
         </button>
       </form>

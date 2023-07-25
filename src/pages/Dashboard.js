@@ -10,7 +10,6 @@ const Dashboard = () => {
   return (
     <div>
       <Navbar />    
-
       <HomeView />
       <Chartgeral />
       <Footer />

@@ -39,17 +39,7 @@ const HomeView = () => {
           <h6 className="card-title text-center">Do mês de {mes} {tmes}</h6>
         </div>
       </div>
-      <div className="card">
-        <div className="card-body">
 
-        <InsertModal />
-
-
-
-        </div>
-
-
-      </div>
 
     </div>
   );

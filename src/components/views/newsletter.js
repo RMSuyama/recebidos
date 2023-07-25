@@ -36,7 +36,7 @@ const Newsletter = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="card social-card">
+    <form onSubmit={handleSubmit} className="card social-card p-4">
       <h6>NEWSLETTER</h6>
       <h5>Se inscreva em nossa Newsletter e receba atualizações e notícias exclusivas!</h5>
       {error && <p style={{ color: 'red' }}>{error}</p>}
@@ -62,7 +62,7 @@ const Newsletter = () => {
           ></input>
         </div>
       </div>
-      <button type="submit" className="btn btn-outline-secondary">Inscrever</button>
+      <button type="submit" className="btn btn-outline-danger">Inscrever</button>
     </form>
   );
 };
