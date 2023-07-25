@@ -7,7 +7,7 @@ function MyComponent() {
 
   const generatePDF = () => {
     const opt = {
-      margin: [0.5,0.5,0.5,0.5],
+      margin: [0.25,0.75,0.5,0.75],
       filename: 'myfile.pdf',
       image: { type: 'jpeg', quality: 0.98 },
       html2canvas: { scale: 2 },
@@ -18,10 +18,8 @@ function MyComponent() {
   }
 
   return (
-    <div>
-              <button onclick={generatePDF} className="btn btn-outline-danger">Gerar Procuração</button>
-
-      <button onClick={generatePDF} className='btn btn-danger'>
+    <div className='card social-card p-4'>
+      <button onClick={generatePDF} className='btn btn-outline-danger'>
         Gerar PDF
       </button>
       <div ref={myComponentRef}>

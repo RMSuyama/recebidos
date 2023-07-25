@@ -5,7 +5,7 @@ const ProcuracaoView = () => {
     const outorgante = 'Outorgante: [Nome do outorgante], [nacionalidade], [estado civil], [profissão], portador do documento de identidade de nº [número do RG], inscrito no CPF sob nº [número do CPF], residente e domiciliado à [endereço completo].'
     const outorgado = 'Outorgado: RAFAEL MOREIRA SUYAMA, brasileiro, advogado, inscrito na OAB/SP sob o nº. 484.261, portador do RG nº. 50.078.611-2 – SSP/SP, e inscrito no CPF sob o nº. 455.787.608-05, com escritório na Avenida Haguemu Matsuzawa, 1222 –, centro, cidade de Registro/SP'
 
-    const procuracaoText = `Por este instrumento particular de procuração, o Outorgante nomeia e constitui como seu procurador o Outorgado, concedendo-lhe poderes para o foro em geral, podendo para tanto o dito advogado, confessar, reconhecer a procedência do pedido, transigir, desistir, receber citação inicial, usar de todos os recursos em direito permitidos, enfim, praticar todos os demais atos necessários ao bom e cabal desempenho deste mandato, inclusive substabelecer no todo ou em parte.
+    const procuracaoText = `Pelo presente instrumento de procuração, nomeia e constitui seu bastante procurador, a quem confere amplos poderes para o foro em geral, com cláusula “AD-JUDICIA” e “EXTRA JUDICIA”, em qualquer Juízo, Instância ou Tribunal, ou fora destes, as ações competentes e defendê-lo(a)(s) nas contrárias, seguindo umas e outras até final decisão, em primeira e superior instância, recorrer de despachos e sentenças, ainda PODERES ESPECIAIS para confessar, reconhecer a procedência do pedido, transigir, desistir, renunciar ao direito sobre que se funda a ação, receber, dar quitação e firmar compromissos, promover acordos e composições amigáveis, assinar compromissos, praticando, enfim, todos os atos necessários ao fiel e cabal desempenho deste mandato (agindo em conjunto ou separadamente) podendo inclusive substabelecer esta com ou sem reserva de iguais poderes e para o fim especial de ___.
     `;
 
     const data = new Date()
@@ -15,7 +15,7 @@ const ProcuracaoView = () => {
 
   return (
     <div className="container">
-      <h1 className="mb-4" style={{ whiteSpace: 'pre-line', textAlign: 'center', fontFamily: 'spectral', paddingTop: '2vw' }}>Procuração Ad Judicia</h1>
+      <div style={{ fontSize: '1.5vw', whiteSpace: 'pre-line', textAlign: 'center', fontFamily: 'spectral', paddingTop: '2vw', fontWeight: 'bold' }}>Procuração Ad Judicia</div>
       <div style={{ whiteSpace: 'pre-line', textAlign: 'justify', fontFamily: 'spectral', paddingTop: '2vw'  }}>
         {procTitle}
       </div>
@@ -25,11 +25,11 @@ const ProcuracaoView = () => {
       <div style={{ whiteSpace: 'pre-line', textAlign: 'justify', fontFamily: 'spectral', paddingTop: '0.5vw' }}>
         {outorgado}
       </div>
-      <div style={{ whiteSpace: 'pre-line', textAlign: 'justify', fontFamily: 'spectral', paddingTop: '2vw'  }}>
+      <div style={{ textIndent: '4vw', whiteSpace: 'pre-line', textAlign: 'justify', fontFamily: 'spectral', paddingTop: '2vw'  }}>
         {procuracaoText}
       </div>
 
-      <div style={{ whiteSpace: 'pre-line', textAlign: 'center', fontFamily: 'spectral', paddingTop: '2vw'  }}>
+      <div style={{ whiteSpace: 'pre-line', textAlign: 'center', fontFamily: 'spectral', paddingTop: '6vw'  }}>
         {dataLocal}
       </div>
 
