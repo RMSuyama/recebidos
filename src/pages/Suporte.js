@@ -10,8 +10,9 @@ const Suporte = () => {
   return (
     <div>
       <Navbar />      
-      <HomeView />
-      <Chartgeral />
+      <div className='card'>
+        <h1>Estamos em greve!</h1>
+      </div>
       <Footer />
       
       </div>
