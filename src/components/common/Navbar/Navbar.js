@@ -36,9 +36,10 @@ const Navbar = () => {
             <li className="nav-item">
               <Link className="nav-link" to="/calculadora" style={{ color: 'black', textDecoration: 'none' }}>Calculadora de Prazos</Link>
             </li>
+            <li className="nav-item">
+            <Link className="nav-link" to="/" style={{ color: 'black', textDecoration: 'none' }}>Log-out</Link>            </li>
           </ul>
         </div>
-        <Link to="/" style={{ color: 'black', textDecoration: 'none' }}>Log-out</Link>
       </div>
     </nav>
   );
