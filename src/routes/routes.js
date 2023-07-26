@@ -11,7 +11,6 @@ import Dashboard from "../pages/Dashboard";
 import Suporte from "../pages/Suporte";
 import Calculadora from "../pages/Calculadora";
 import EditarColaborador from "../pages/EditarColab";
-import CalcularBeneficios from "../components/views/funcionarioPublico/calculadora";
 import CalcFP from "../pages/CalculadoraFP";
 
 function ProtectedRoute({ element: Component, ...rest }) {

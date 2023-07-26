@@ -1,5 +1,5 @@
 import React from 'react';
-import InsertModal from './insertModal';
+
 
 
 const HomeView = () => {

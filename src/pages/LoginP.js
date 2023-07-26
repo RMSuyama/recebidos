@@ -5,6 +5,7 @@ const LoginP = () => {
   return (
     <div>
     <Login />
+
     </div>
   );
 };
