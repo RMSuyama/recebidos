@@ -5,6 +5,7 @@ import HomeView from '../components/views/homepanel/homeview';
 import Recebido from '../components/views/carteiraview/recebido';
 import SomaEntradas from '../components/views/carteiraview/totalentrada';
 import Recebidostable from '../components/views/carteiraview/recebidostable';
+import Sidebar from '../components/common/Sidebar/Sidebar';
 
 
 
@@ -18,7 +19,7 @@ const Carteira = () => {
       <Recebidostable />
       <Recebido />
       <Footer />
-      
+      <Sidebar />
       </div>
   );
 }

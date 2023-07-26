@@ -11,6 +11,8 @@ import Dashboard from "../pages/Dashboard";
 import Suporte from "../pages/Suporte";
 import Calculadora from "../pages/Calculadora";
 import EditarColaborador from "../pages/EditarColab";
+import CalcularBeneficios from "../components/views/funcionarioPublico/calculadora";
+import CalcFP from "../pages/CalculadoraFP";
 
 function ProtectedRoute({ element: Component, ...rest }) {
   const [authenticated, setAuthenticated] = useState(false);
@@ -30,7 +32,31 @@ function ProtectedRoute({ element: Component, ...rest }) {
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div>
+<div class="spinner-grow text-primary" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<div class="spinner-grow text-secondary" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<div class="spinner-grow text-success" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<div class="spinner-grow text-danger" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<div class="spinner-grow text-warning" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<div class="spinner-grow text-info" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<div class="spinner-grow text-dark" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+
+
+    </div>;
   }
 
   return authenticated ? <Component {...rest} /> : <Navigate to="/" replace />;
@@ -48,6 +74,7 @@ const Rotas = () => {
         <Route path="/suporte" element={<ProtectedRoute element={Suporte} />} />
         <Route path="/calculadora" element={<ProtectedRoute element={Calculadora} />} />
         <Route path="/editar-colaborador/:id" element={<ProtectedRoute element={EditarColaborador} />} />
+        <Route path="/calcfp" element={<ProtectedRoute element={CalcFP} />} />
       </Routes>
     </BrowserRouter>
   );

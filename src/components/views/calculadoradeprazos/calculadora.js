@@ -186,7 +186,7 @@ setAlertMessage(
     <>
       <AlertModal show={showAlert} onClose={handleAlertClose} message={alertMessage} />
 
-      <form onSubmit={handleSubmit} className="card p-4">
+      <form onSubmit={handleSubmit} className="card p-5">
         <div className="mb-3">
           <label htmlFor="pecaProcessual" className="form-label">
             Peça Processual:

@@ -121,7 +121,7 @@ const Recebido = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="card social-card p-4">
+    <form onSubmit={handleSubmit} className="card social-card p-5">
       <h6>REGISTRO DE CONTAS A RECEBER</h6>
       {error && <p style={{ color: 'red' }}>{error}</p>}
       <div className="mb-2">

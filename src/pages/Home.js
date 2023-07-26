@@ -5,6 +5,7 @@ import HomeView from '../components/views/homepanel/homeview';
 import Newsletter from '../components/views/newsletter';
 import ProcuracaoView from '../components/views/procuracaogen/proc';
 import MyComponent from '../components/views/procuracaogen/procgen';
+import Sidebar from '../components/common/Sidebar/Sidebar';
 
 
 
@@ -16,7 +17,7 @@ const Home = () => {
       <MyComponent />
       <Newsletter />
       <Footer />
-      
+      <Sidebar />
       </div>
   );
 }

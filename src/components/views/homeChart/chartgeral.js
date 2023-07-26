@@ -61,9 +61,14 @@ export default function Chartgeral() {
   ];
 
   return (
+    <div className="card p-5">
     <ApexChart options={options} 
     series={series} 
     type="line" 
     height={350} />
+
+
+    </div>
+
   );
 }

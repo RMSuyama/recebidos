@@ -61,9 +61,13 @@ export default function Chart() {
   ];
 
   return (
-    <ApexChart options={options} 
+    <div className="card p-5">
+
+          <ApexChart options={options} 
     series={series} 
     type="candlestick" 
     height={350} width={460} />
+    </div>
+
   );
 }

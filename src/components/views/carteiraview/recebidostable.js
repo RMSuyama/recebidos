@@ -24,7 +24,7 @@ const Recebidostable = () => {
   }, []);
 
   return (
-    <div className='card p-4'>
+    <div className='card p-5'>
       <h3>Lista de Recebidos</h3>
       <table className="table">
         <thead>

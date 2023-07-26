@@ -24,7 +24,7 @@ const TableColaboradores = () => {
   }, []);
 
   return (
-    <div className="table-responsive card p-4">
+    <div className="table-responsive card p-5">
       <table className="table table-bordered">
         <thead>
           <tr>
