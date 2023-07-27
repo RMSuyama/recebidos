@@ -37,8 +37,8 @@ const Sidebar = () => {
                     <Link className="nav-link"  to="/home">Due Dilligence</Link>
                     <Link className="nav-link"  to="/calcfp">Calculadora de Salário Funcionários Públicos</Link>
                     <Link className="nav-link" to="/calculadora">Calculadora de Prazos</Link>
-                    <Link className="nav-link" eventKey="link-3">Calculadora Trabalhista</Link>
-                    <Link className="nav-link" eventKey="link-4">Cálculo de Progressão de Pena</Link>
+                    <Link className="nav-link" to="/geradorproc">Gerador de Procuração</Link>
+                    <Link className="nav-link" to="link-4">Cálculo de Progressão de Pena</Link>
                 </Nav>
             </div>
         </>

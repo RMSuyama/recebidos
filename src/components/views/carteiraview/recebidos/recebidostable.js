@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ApexChart from "react-apexcharts";
-import { firestore } from '../../../config/firebase';
+import { firestore } from '../../../../config/firebase';
 
 const Chartgeral = () => {
   const [series, setSeries] = useState([{
@@ -13,7 +13,7 @@ const Chartgeral = () => {
         const contasRef = firestore.collection('ContasAReceber');
         const contasSnapshot = await contasRef.get();
         const contasData = contasSnapshot.docs.map((doc) => ({
-          x: new Date(doc.data().dataEntrada.toDate()), // assumindo que dataEntrada é um objeto Timestamp do Firestore
+          x: doc.data().dataInsercao?.toDate(), // Convert Firestore Timestamp to JavaScript Date object
           y: [doc.data().valor], // valor como exemplo
         }));
         setSeries([{ data: contasData }]);

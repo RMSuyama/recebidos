@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { firestore } from '../../../config/firebase';
+import { firestore } from '../../../../config/firebase';
+import firebase from '../../../../config/firebase';
 
 const Recebido = () => {
   const [valor, setValor] = useState('');
@@ -97,6 +98,7 @@ const Recebido = () => {
         quantidadeParcelas: quantidadeParcelas,
         dataVencimentoPrimeiraParcela: dataVencimentoPrimeiraParcela,
         valoresParcelas: valores,
+        dataInsercao: firebase.firestore.FieldValue.serverTimestamp(), // Aqui está a adição
       };
 
       await contaReceberRef.add(registro);
@@ -121,7 +123,7 @@ const Recebido = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="card social-card p-5">
+    <form onSubmit={handleSubmit} className="card social-card p-4">
       <h6>REGISTRO DE CONTAS A RECEBER</h6>
       {error && <p style={{ color: 'red' }}>{error}</p>}
       <div className="mb-2">

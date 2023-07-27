@@ -35,7 +35,7 @@ const ListarColaboradores = () => {
   );
 
   return (
-    <div className="card p-5">
+    <div className="card p-4">
       <h6>LISTA DE COLABORADORES</h6>
       <div className="mb-3">
         <input

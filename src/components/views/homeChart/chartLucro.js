@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import ApexChart from "react-apexcharts";
 import { firestore } from '../../../config/firebase';
 
-const Chartgeral = () => {
+const ChartLucro = () => {
   const [series, setSeries] = useState([{
     data: [],
   }]);
@@ -54,4 +54,4 @@ const Chartgeral = () => {
   );
 }
 
-export default Chartgeral;
+export default ChartLucro;

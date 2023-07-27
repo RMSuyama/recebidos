@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { firestore } from '../config/firebase';
+import { firestore } from '../../../config/firebase';
 
 const EditarColaborador = () => {
   const { id } = useParams();
@@ -44,7 +44,7 @@ const EditarColaborador = () => {
 
   return (
     colaborador && (
-      <div className="card p-5">
+      <div className="card p-4">
         <h6>EDITAR COLABORADOR</h6>
         <form onSubmit={handleSubmit}>
           <input

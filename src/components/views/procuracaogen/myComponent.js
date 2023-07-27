@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import html2pdf from 'html2pdf.js';
-import ProcuracaoView from './proc';
+import ProcuracaoView from './procuracaoView';
 
 function MyComponent() {
   const myComponentRef = useRef();
@@ -18,7 +18,7 @@ function MyComponent() {
   }
 
   return (
-    <div className='card social-card p-5'>
+    <div className='card social-card p-4'>
       <button onClick={generatePDF} className='btn btn-outline-danger'>
         Gerar PDF
       </button>

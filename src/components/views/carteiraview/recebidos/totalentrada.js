@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { firestore } from '../../../config/firebase';
+import { firestore } from '../../../../config/firebase';
 
 
 const SomaEntradas = () => {
@@ -28,7 +28,7 @@ const SomaEntradas = () => {
     }, []);
   
     return (
-      <div className='card p-5'>
+      <div className='card p-4'>
         <h3>Soma das Entradas</h3>
         <p>Total: R$ {soma.toFixed(2)}</p>
       </div>

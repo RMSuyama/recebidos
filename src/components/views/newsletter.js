@@ -36,7 +36,7 @@ const Newsletter = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="card social-card p-5">
+    <form onSubmit={handleSubmit} className="card social-card p-4">
       <h6>NEWSLETTER</h6>
       <h5>Se inscreva em nossa Newsletter e receba atualizações e notícias exclusivas!</h5>
       {error && <p style={{ color: 'red' }}>{error}</p>}
