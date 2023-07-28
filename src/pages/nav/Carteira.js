@@ -8,6 +8,7 @@ import Recebidostable from '../../components/views/carteiraview/recebidos/recebi
 import Sidebar from '../../components/common/Sidebar/Sidebar';
 import RegistroDespesas from '../../components/views/carteiraview/saida/registroDespesas';
 import CPagarView from '../../components/views/carteiraview/saida/cpagarview';
+import RecebidoView from '../../components/views/carteiraview/recebidos/recebidoView';
 
 
 
@@ -16,9 +17,10 @@ const Carteira = () => {
     <div>
 
       <Navbar /> 
+      <HomeView />
       <CPagarView />    
       <RegistroDespesas /> 
-      <HomeView />
+           <RecebidoView />
       <SomaEntradas />
       <Recebidostable />
       <Recebido />

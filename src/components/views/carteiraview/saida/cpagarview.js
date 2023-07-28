@@ -7,13 +7,13 @@ const CPagarView = () => {
   useEffect(() => {
     const fetchDados = async () => {
       try {
-        const carteiraRef = firestore.collection('carteira');
-        const carteiraSnapshot = await carteiraRef.get();
-        const carteiraData = carteiraSnapshot.docs.map((doc) => ({
+        const contaPagarRef = firestore.collection('ContasAPagar');
+        const contaPagarSnapshot = await contaPagarRef.get();
+        const contaPagarData = contaPagarSnapshot.docs.map((doc) => ({
           id: doc.id,
-          ...doc.data(),
+          ...doc.data()
         }));
-        setDados(carteiraData);
+        setDados(contaPagarData);
       } catch (error) {
         console.error('Erro ao buscar os dados:', error);
       }
@@ -22,27 +22,39 @@ const CPagarView = () => {
     fetchDados();
   }, []);
 
+  // Calcular a soma de todas as saídas
+  const totalSaidas = dados.reduce((acc, item) => acc + item.valor, 0);
+
   return (
-    <table className="table">
-      <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">First</th>
-          <th scope="col">Last</th>
-          <th scope="col">Handle</th>
-        </tr>
-      </thead>
-      <tbody>
-        {dados.map((item) => (
-          <tr key={item.id}>
-            <th scope="row">{item.id}</th>
-            <td>{item.first}</td>
-            <td>{item.last}</td>
-            <td>{item.handle}</td>
+    <div className="table-responsive p-5">
+      <table className="table">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Descrição</th>
+            <th scope="col">Valor</th>
+            <th scope="col">Data do Pagamento</th>
           </tr>
-        ))}
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          {dados.map((item) => (
+            <tr key={item.id}>
+              <th scope="row">{item.id}</th>
+              <td>{item.descricao}</td>
+              <td>R${item.valor.toLocaleString('pt-BR', {minimumFractionDigits: 2})}</td>
+              <td>{item.dataPagamento}</td>
+            </tr>
+          ))}
+          <tr>
+            <th scope="row">Total</th>
+            <td colSpan="2"></td>
+            <td style={{backgroundColor:'lightgrey', fontWeight:'bold',}}>
+              R${totalSaidas.toLocaleString('pt-BR', {minimumFractionDigits: 2})}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   );
 };
 

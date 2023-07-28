@@ -30,7 +30,7 @@ const SomaEntradas = () => {
     return (
       <div className='card p-4'>
         <h3>Soma das Entradas</h3>
-        <p>Total: R$ {soma.toFixed(2)}</p>
+        <p>Total: R$ {soma.toLocaleString('pt-BR', {minimumFractionDigits: 2})}</p>
       </div>
     );
   };
