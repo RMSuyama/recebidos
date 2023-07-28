@@ -20,7 +20,7 @@ const Carteira = () => {
       <HomeView />
       <CPagarView />    
       <RegistroDespesas /> 
-           <RecebidoView />
+      <RecebidoView />
       <SomaEntradas />
       <Recebidostable />
       <Recebido />
