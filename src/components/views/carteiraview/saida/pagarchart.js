@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import ApexChart from "react-apexcharts";
 import { firestore } from '../../../../config/firebase';
 
-const Chartgeral = () => {
+const CPagarChart = () => {
   const [series, setSeries] = useState([{
     data: [],
   }]);
@@ -10,7 +10,7 @@ const Chartgeral = () => {
   useEffect(() => {
     const fetchDados = async () => {
       try {
-        const contasRef = firestore.collection('ContasAReceber');
+        const contasRef = firestore.collection('ContasAPagar'); // Aqui é onde mudei para 'ContasAPagar'
         const contasSnapshot = await contasRef.get();
         const contasData = contasSnapshot.docs.map((doc) => ({
           x: doc.data().dataInsercao?.toDate(), // Convert Firestore Timestamp to JavaScript Date object
@@ -31,7 +31,7 @@ const Chartgeral = () => {
       type: "line",
     },
     title: {
-      text: "Análise de Entradas de Dinheiro",
+      text: "Análise de Saídas de Dinheiro", // Mudei o título também
       align: "left",
     },
     xaxis: {
@@ -54,4 +54,4 @@ const Chartgeral = () => {
   );
 }
 
-export default Chartgeral;
+export default CPagarChart;

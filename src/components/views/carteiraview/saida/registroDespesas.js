@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { firestore } from '../../../../config/firebase';
-
+import firebase from '../../../../config/firebase';
 const RegistroDespesas = () => {
   const [valor, setValor] = useState('');
   const [descricao, setDescricao] = useState('');
