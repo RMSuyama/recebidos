@@ -34,7 +34,7 @@ const Sidebar = () => {
 
             <div ref={sidebarRef} className={`sidebar ${isOpen ? 'open' : ''}`}>
                 <Nav defaultActiveKey="/home" className="flex-column">
-                    <Link className="nav-link"  to="/home">Due Dilligence</Link>
+                    <Link className="nav-link"  to="/duedilligence">Due Dilligence</Link>
                     <Link className="nav-link"  to="/calcfp">Calculadora de Salário Funcionários Públicos</Link>
                     <Link className="nav-link" to="/calculadora">Calculadora de Prazos</Link>
                     <Link className="nav-link" to="/geradorproc">Gerador de Procuração</Link>

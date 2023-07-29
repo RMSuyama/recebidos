@@ -12,6 +12,7 @@ import EditarColaborador from "../pages/nav/colaboradores/EditarColab";
 import CalcFP from "../pages/side/CalculadoraFP";
 import GeradorProc from "../pages/side/GeradorProc";
 import LoginP from "../pages/LoginP";
+import DueDilligence from "../pages/side/duedilligence";
 
 
 function ProtectedRoute({ element: Component, ...rest }) {
@@ -76,6 +77,8 @@ const Rotas = () => {
         <Route path="/editar-colaborador/:id" element={<ProtectedRoute element={EditarColaborador} />} />
         <Route path="/calcfp" element={<ProtectedRoute element={CalcFP} />} />
         <Route path="/geradorproc" element={<ProtectedRoute element={GeradorProc} />} />
+        <Route path="/duedilligence" element={<ProtectedRoute element={DueDilligence} />} />
+
       </Routes>
     </BrowserRouter>
   );
