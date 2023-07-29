@@ -3,16 +3,19 @@ import Navbar from '../../components/common/Navbar/Navbar';
 import Footer from '../../components/common/Footer/Footer';
 import HomeView from '../../components/views/homepanel/homeview';
 import Sidebar from '../../components/common/Sidebar/Sidebar';
-import Chartgeral from '../../components/views/carteiraview/recebidos/recebidostable';
+import CartChart from '../../components/views/carteiraview/CartChart';
+import TotalChart from '../../components/views/carteiraview/CartChart';
+import EvoluctionChart from '../../components/views/carteiraview/TotalChart';
 
 
 
 const Dashboard = () => {
   return (
     <div>
-      <Navbar />    
-      <HomeView />
-      <Chartgeral />
+      <Navbar />  
+      <HomeView />  
+      <EvoluctionChart />
+      <CartChart />
       <Footer />
       <Sidebar />
       </div>

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { firestore } from '../../../config/firebase'; 
+import MyModal from './mymodal';
 
 const HomeView = () => {
   const [entradaValue, setEntradaValue] = useState(0);
@@ -35,7 +36,7 @@ const HomeView = () => {
   const tmes = "R$" + (entradaValue - saidaValue).toLocaleString('pt-BR', { minimumFractionDigits: 2 });
 
   return (
-    <div className="card-group">
+    <div className="card-group p-5">
       <div className="card">
         <div className="card-body">
           <h5 className="card-title text-center">Entrada</h5>
@@ -52,6 +53,12 @@ const HomeView = () => {
         <div className="card-body">
           <h5 className="card-title text-center">Total</h5>
           <h6 className="card-title text-center">Do mês de {mes} {tmes}</h6>
+        </div>
+      </div>
+      <div className="card">
+        <div className="card-body">
+          <h5 className="card-title text-center"><MyModal /></h5>
+
         </div>
       </div>
     </div>

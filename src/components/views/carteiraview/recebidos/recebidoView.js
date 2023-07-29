@@ -24,6 +24,7 @@ const RecebidoView = () => {
   }, []);
 
   return (
+    <div className="p-5">
     <table className="table">
       <thead>
         <tr>
@@ -52,6 +53,7 @@ const RecebidoView = () => {
         ))}
       </tbody>
     </table>
+    </div>
   );
 };
 

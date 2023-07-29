@@ -123,8 +123,8 @@ const Recebido = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="card social-card p-4">
-      <h6>REGISTRO DE CONTAS A RECEBER</h6>
+    <form onSubmit={handleSubmit} className="card social-card p-5">
+      <h6>REGISTRO DE ENTRADAS</h6>
       {error && <p style={{ color: 'red' }}>{error}</p>}
       <div className="mb-2">
         <label htmlFor="valor" className="form-label">Valor</label>

@@ -51,8 +51,8 @@ const RegistroDespesas = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="card social-card p-4">
-      <h6>REGISTRO DE CONTAS A PAGAR</h6>
+    <form onSubmit={handleSubmit} className="card social-card p-5">
+      <h6>REGISTRO DE SAÍDAS</h6>
       {error && <p style={{ color: 'red' }}>{error}</p>}
       <div className="mb-2">
         <label htmlFor="valor" className="form-label">Valor</label>
