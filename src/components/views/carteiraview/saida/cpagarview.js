@@ -122,7 +122,7 @@ const CPagarView = () => {
             ))}
             <tr>
               <th scope="row">Total</th>
-              <td colSpan="2"></td>
+              <td colSpan="1"></td>
               <td style={{backgroundColor:'lightgrey', fontWeight:'bold',}}>
                 R${totalSaidas.toLocaleString('pt-BR', {minimumFractionDigits: 2})}
               </td>

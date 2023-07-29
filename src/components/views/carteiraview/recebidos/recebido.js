@@ -1,260 +1,98 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { firestore } from '../../../../config/firebase';
-import firebase from '../../../../config/firebase';
 
-const Recebido = () => {
-  const [valor, setValor] = useState('');
-  const [metodoPagamento, setMetodoPagamento] = useState('');
-  const [parcelado, setParcelado] = useState(false);
-  const [quantidadeParcelas, setQuantidadeParcelas] = useState(2); // Default to 2 parcels
-  const [dataVencimentoPrimeiraParcela, setDataVencimentoPrimeiraParcela] = useState('');
-  const [valoresParcelas, setValoresParcelas] = useState([]); // State to hold the values of each installment
-  const [colaboradores, setColaboradores] = useState([]);
-  const [colaboradorSelecionado, setColaboradorSelecionado] = useState('');
-  const [descricao, setDescricao] = useState('');
-  const [dataPagamento, setDataPagamento] = useState('');
-  const [error, setError] = useState('');
+const RecebidoView = () => {
+  const [dados, setDados] = useState([]);
+  const [ordem, setOrdem] = useState('crescente');
+  const [campo, setCampo] = useState('descricao');
+  const [mes, setMes] = useState('Todos');
+  const [ano, setAno] = useState('Todos');
 
-  // Obter a lista de colaboradores e advogados do Firestore
   useEffect(() => {
-    const fetchColaboradores = async () => {
+    const fetchDados = async () => {
       try {
-        const colaboradoresRef = firestore.collection('Colaboradores');
-        const colaboradoresSnapshot = await colaboradoresRef.get();
-        const colaboradoresData = colaboradoresSnapshot.docs.map((doc) => ({
+        const contaReceberRef = firestore.collection('ContasAReceber');
+        let contaReceberSnapshot = await contaReceberRef.get();
+        let contaReceberData = contaReceberSnapshot.docs.map((doc) => ({
           id: doc.id,
           ...doc.data(),
+          dataPagamento: new Date(doc.data().dataPagamento)
         }));
-        setColaboradores(colaboradoresData);
+
+        // Convertendo o valor para número
+        contaReceberData = contaReceberData.map(item => ({
+          ...item,
+          valor: parseFloat(item.valor),
+        }));
+
+        // Filtrando os dados baseado no mês e ano selecionados
+        if (mes !== 'Todos') {
+          contaReceberData = contaReceberData.filter(item => item.dataPagamento.getMonth() + 1 === parseInt(mes));
+        }
+
+        if (ano !== 'Todos') {
+          contaReceberData = contaReceberData.filter(item => item.dataPagamento.getFullYear() === parseInt(ano));
+        }
+
+        // Ordenando os dados
+        contaReceberData.sort((a, b) => {
+          if (campo === 'valor' || campo === 'dataPagamento') {
+            return ordem === 'crescente' ? a[campo] - b[campo] : b[campo] - a[campo];
+          } else {
+            return ordem === 'crescente' ? a[campo].localeCompare(b[campo]) : b[campo].localeCompare(a[campo]);
+          }
+        });
+
+        setDados(contaReceberData);
       } catch (error) {
-        console.error('Erro ao obter a lista de colaboradores:', error);
+        console.error('Erro ao buscar os dados:', error);
       }
     };
 
-    fetchColaboradores();
-  }, []);
+    fetchDados();
+  }, [ordem, campo, mes, ano]);
 
-  // Calcula os valores de cada parcela com base no valor total e na quantidade de parcelas
-  const calcularParcelas = (valorTotal, quantidadeParcelas) => {
-    const valorParcela = Math.floor(valorTotal / quantidadeParcelas);
-    const valorParcelaExtra = valorTotal % quantidadeParcelas;
-
-    const valores = new Array(quantidadeParcelas).fill(valorParcela);
-
-    // Distribui o valor restante para a primeira parcela
-    if (valorParcelaExtra > 0) {
-      valores[0] += valorParcelaExtra;
-    }
-
-    return valores;
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    // Verificar se todos os campos estão preenchidos
-    if (
-      !valor ||
-      !colaboradorSelecionado ||
-      !descricao ||
-      !dataPagamento ||
-      (parcelado && (!quantidadeParcelas || !dataVencimentoPrimeiraParcela))
-    ) {
-      const missingFields = [];
-      if (!valor) missingFields.push('Valor');
-      if (!colaboradorSelecionado) missingFields.push('Colaborador');
-      if (!descricao) missingFields.push('Descrição');
-      if (!dataPagamento) missingFields.push('Data do Pagamento');
-      if (parcelado) {
-        if (!quantidadeParcelas) missingFields.push('Quantidade de Parcelas');
-        if (!dataVencimentoPrimeiraParcela) missingFields.push('Data de Vencimento da Primeira Parcela');
-      }
-
-      setError(`Por favor, preencha os seguintes campos obrigatórios: ${missingFields.join(', ')}`);
-      return;
-    }
-
-    setError(''); // Limpar mensagem de erro caso tudo esteja preenchido corretamente
-
-    try {
-      // Calcular os valores das parcelas
-      const valorTotal = parseFloat(valor);
-      let valores;
-      if (parcelado && quantidadeParcelas > 1) {
-        valores = calcularParcelas(valorTotal, quantidadeParcelas);
-      } else {
-        valores = [valorTotal];
-      }
-
-      // Envie os dados para o Firebase
-      const contaReceberRef = firestore.collection('ContasAReceber');
-      const registro = {
-        colaborador: colaboradorSelecionado,
-        descricao: descricao,
-        metodoPagamento: metodoPagamento,
-        dataPagamento: dataPagamento,
-        parcelado: parcelado,
-        valor: valorTotal,
-        quantidadeParcelas: quantidadeParcelas,
-        dataVencimentoPrimeiraParcela: dataVencimentoPrimeiraParcela,
-        valoresParcelas: valores,
-        dataInsercao: firebase.firestore.FieldValue.serverTimestamp(), // Aqui está a adição
-      };
-
-      await contaReceberRef.add(registro);
-
-      // Limpe o estado dos campos após o envio bem-sucedido
-      setValor('');
-      setMetodoPagamento('');
-      setParcelado(false);
-      setQuantidadeParcelas(2);
-      setDataVencimentoPrimeiraParcela('');
-      setValoresParcelas([]);
-      setColaboradorSelecionado('');
-      setDescricao('');
-      setDataPagamento('');
-
-      // Exiba uma mensagem de sucesso ou redirecione o usuário para outra página
-      alert('Dados enviados com sucesso!');
-    } catch (error) {
-      console.error('Erro ao enviar os dados:', error);
-      setError('Erro ao enviar os dados. Por favor, tente novamente mais tarde.');
-    }
-  };
+  // Calcular a soma de todas as entradas
+  const totalEntradas = dados.reduce((acc, item) => acc + item.valor, 0);
 
   return (
-    <form onSubmit={handleSubmit} className="card social-card p-5">
-      <h6>REGISTRO DE ENTRADAS</h6>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-      <div className="mb-2">
-        <label htmlFor="valor" className="form-label">Valor</label>
-        <input
-          type="number"
-          className="form-control"
-          id="valor"
-          placeholder="Valor"
-          value={valor}
-          onChange={(e) => setValor(e.target.value)}
-        />
+    <div className="container">
+      <div className="row mb-3">
+        {/* Similar dropdowns to CPagarView for ordering, filtering by month and year */}
       </div>
-      <div className="mb-2">
-        <label htmlFor="descricao" className="form-label">Descrição</label>
-        <input
-          type="text"
-          className="form-control"
-          id="descricao"
-          placeholder="Descrição"
-          value={descricao}
-          onChange={(e) => setDescricao(e.target.value)}
-        />
-      </div>
-      <div className="mb-2">
-        <label htmlFor="dataPagamento" className="form-label">Data do Pagamento</label>
-        <input
-          type="date"
-          className="form-control"
-          id="dataPagamento"
-          value={dataPagamento}
-          onChange={(e) => setDataPagamento(e.target.value)}
-        />
-      </div>
-      <div className="mb-2">
-        <label htmlFor="metodoPagamento" className="form-label">Método de Pagamento</label>
-        <select
-          className="form-select"
-          id="metodoPagamento"
-          value={metodoPagamento}
-          onChange={(e) => setMetodoPagamento(e.target.value)}
-        >
-          <option value="pix">PIX</option>
-          <option value="boleto">Boleto</option>
-          <option value="dinheiro">Dinheiro</option>
-          <option value="cartaocredito">Cartão de Crédito</option>
-        </select>
-      </div>
-      <div className="mb-2">
-        <label htmlFor="parcelado" className="form-check-label">Parcelado</label>
-        <input
-          type="checkbox"
-          className="form-check-input"
-          id="parcelado"
-          checked={parcelado}
-          onChange={(e) => setParcelado(e.target.checked)}
-        />
-      </div>
-      {parcelado && (
-        <div className="mb-2">
-          <label htmlFor="quantidadeParcelas" className="form-label">Quantidade de Parcelas</label>
-          <input
-            type="number"
-            className="form-control"
-            id="quantidadeParcelas"
-            placeholder="Quantidade de Parcelas"
-            value={quantidadeParcelas}
-            onChange={(e) => setQuantidadeParcelas(parseInt(e.target.value, 10))}
-          />
-        </div>
-      )}
-      {parcelado && quantidadeParcelas > 1 && (
-        <div className="mb-2">
-          <label htmlFor="dataVencimentoPrimeiraParcela" className="form-label">Data de Vencimento da Primeira Parcela</label>
-          <input
-            type="date"
-            className="form-control"
-            id="dataVencimentoPrimeiraParcela"
-            value={dataVencimentoPrimeiraParcela}
-            onChange={(e) => setDataVencimentoPrimeiraParcela(e.target.value)}
-          />
-        </div>
-      )}
-      {parcelado && quantidadeParcelas > 1 && (
-        <>
-          <h6>Parcelas</h6>
-          <div className="row">
-            {valoresParcelas.map((valorParcela, index) => (
-              <div className="col" key={index}>
-                <div className="mb-2">
-                  <label htmlFor={`valorParcela${index}`} className="form-label">
-                    Parcela {index + 1}/{quantidadeParcelas}
-                  </label>
-                  <input
-                    type="number"
-                    className="form-control"
-                    id={`valorParcela${index}`}
-                    placeholder={`Parcela ${index + 1}`}
-                    value={valorParcela}
-                    onChange={(e) => {
-                      const novosValoresParcelas = [...valoresParcelas];
-                      novosValoresParcelas[index] = parseInt(e.target.value, 10);
-                      setValoresParcelas(novosValoresParcelas);
-                    }}
-                  />
-                </div>
-              </div>
+      <div className="table-responsive">
+        <table className="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Id</th>
+              <th scope="col">Colaborador</th>
+              <th scope="col">Descrição</th>
+              <th scope="col">Valor</th>
+              <th scope="col">Data de Pagamento</th>
+            </tr>
+          </thead>
+          <tbody>
+            {dados.map((item) => (
+              <tr key={item.id}>
+                <th scope="row">{item.id}</th>
+                <td>{item.colaborador}</td>
+                <td>{item.descricao}</td>
+                <td>R${item.valor.toLocaleString('pt-BR', {minimumFractionDigits: 2})}</td>
+                <td>{item.dataPagamento.toISOString().substring(0, 10)}</td>
+              </tr>
             ))}
-          </div>
-        </>
-      )}
-      <div className="mb-2">
-        <label htmlFor="colaboradorSelecionado" className="form-label">Colaborador</label>
-        <select
-          className="form-select"
-          id="colaboradorSelecionado"
-          value={colaboradorSelecionado}
-          onChange={(e) => setColaboradorSelecionado(e.target.value)}
-        >
-          <option value="">Selecione um colaborador...</option>
-          {colaboradores.map((colaborador) => (
-            <option key={colaborador.id} value={colaborador.id}>
-              {colaborador.nome}
-            </option>
-          ))}
-        </select>
+            <tr>
+              <th scope="row">Total</th>
+              <td colSpan="2"></td>
+              <td style={{backgroundColor:'lightgrey', fontWeight:'bold',}}>
+                R${totalEntradas.toLocaleString('pt-BR', {minimumFractionDigits: 2})}
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-      <button type="submit" className="btn btn-outline-danger">Registrar</button>
-    </form>
+    </div>
   );
-  
 };
 
-export default Recebido;
+export default RecebidoView;
