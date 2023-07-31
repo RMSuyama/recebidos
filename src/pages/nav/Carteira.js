@@ -6,6 +6,7 @@ import Sidebar from '../../components/common/Sidebar/Sidebar';
 import CPagarView from '../../components/views/carteiraview/saida/cpagarview';
 
 import RecebidoViews from '../../components/views/carteiraview/recebidos/recebidoView';
+import CalendarView from '../../components/views/homepanel/calendar';
 
 
 
@@ -15,6 +16,7 @@ const Carteira = () => {
 
       <Navbar /> 
       <HomeView />
+      <CalendarView />
       <CPagarView />  
       <RecebidoViews />
       <Footer />

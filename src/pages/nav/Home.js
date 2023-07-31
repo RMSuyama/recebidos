@@ -4,6 +4,7 @@ import Footer from '../../components/common/Footer/Footer';
 import HomeView from '../../components/views/homepanel/homeview';
 import Newsletter from '../../components/views/newsletter';
 import Sidebar from '../../components/common/Sidebar/Sidebar';
+import CalendarView from '../../components/views/homepanel/calendar';
 
 
 
@@ -12,6 +13,7 @@ const Home = () => {
     <div>
       <Navbar />      
       <HomeView />
+      <CalendarView />
       <Newsletter />
       <Footer />
       <Sidebar />
