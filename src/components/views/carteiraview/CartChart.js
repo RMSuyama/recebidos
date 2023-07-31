@@ -14,8 +14,6 @@ const CartChart = () => {
     }
   ]);
 
-  const [totals, setTotals] = useState({ entradas: 0, saidas: 0 });
-
   useEffect(() => {
     const fetchDados = async () => {
       try {
@@ -29,11 +27,11 @@ const CartChart = () => {
     
         const groupByDate = (arr) => {
           return arr.reduce((acc, curr) => {
-            const date = curr.dataInsercao.toDate().setHours(0,0,0,0);
+            const date = new Date(curr.dataPagamento).setHours(0,0,0,0);
             if (!acc[date]) {
               acc[date] = 0;
             }
-            acc[date] += curr.valor;
+            acc[date] += parseFloat(curr.valor);
             return acc;
           }, {});
         }
@@ -55,11 +53,6 @@ const CartChart = () => {
               .sort((a, b) => a.x - b.x) // Sort entries by date
           }
         ]);
-    
-        setTotals({
-          entradas: Object.values(entradasByDate).reduce((a, b) => a + b, 0),
-          saidas: Object.values(saidasByDate).reduce((a, b) => a + b, 0)
-        });
       } catch (error) {
         console.error('Erro ao buscar os dados:', error);
       }
@@ -73,23 +66,41 @@ const CartChart = () => {
       height: 350,
       type: "line",
     },
-    title: {
-      text: "Análise de Fluxo de Dinheiro",
-      align: "center",
-    },
     xaxis: {
       type: "datetime",
     },
     yaxis: {
+      labels: {
+        formatter: function(value) {
+          return `R$ ${value.toFixed(2)}`;
+        }
+      },
       tooltip: {
         enabled: true,
+        formatter: function(value) {
+          return `R$ ${value.toFixed(2)}`;
+        }
+      },
+    },
+    colors: ['#008FFB', '#FF4560'],
+    stroke: {
+      curve: 'smooth'
+    },
+    dataLabels: {
+      enabled: false
+    },
+    tooltip: {
+      x: {
+        format: 'dd/MM/yyyy'
       },
     },
   };
+  
 
   return (
     <div className="card p-5">
       <div className="card-body">
+        <h2 className='text-center' style={{fontWeight:'bold'}}>Análise de Fluxo de Dinheiro</h2>
         <ApexChart options={options} series={series} type="line" height={350} />
       </div>
     </div>

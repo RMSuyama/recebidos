@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { Button, Modal } from "react-bootstrap";
-import Recebido from "../carteiraview/recebidos/recebido";
 import RegistroDespesas from "../carteiraview/saida/registroDespesas";
+import RecebidoForm from "../carteiraview/recebidos/recebidoView";
+import RecebidoForms from "../carteiraview/recebidos/recebidoForm";
+import RecebidoViews from "../carteiraview/recebidos/recebidoView";
 
 const MyModal = () => {
   const [show, setShow] = useState(false);
@@ -53,7 +55,7 @@ const MyModal = () => {
         <Modal.Header closeButton>
           <Modal.Title></Modal.Title>
         </Modal.Header>
-        <Modal.Body><Recebido /></Modal.Body>
+        <Modal.Body><RecebidoForms /></Modal.Body>
         <Modal.Footer>
           <Button className="btn-danger" onClick={handleBackToFirst}>
             Voltar

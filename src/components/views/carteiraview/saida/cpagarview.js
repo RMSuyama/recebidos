@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { firestore } from '../../../../config/firebase';
+import SaidaPdf from './saidapdf';
 
 const CPagarView = () => {
   const [dados, setDados] = useState([]);
@@ -129,6 +130,7 @@ const CPagarView = () => {
             </tr>
           </tbody>
         </table>
+        <SaidaPdf dados={dados} />
       </div>
     </div>
   );

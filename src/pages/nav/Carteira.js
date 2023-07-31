@@ -4,7 +4,8 @@ import Footer from '../../components/common/Footer/Footer';
 import HomeView from '../../components/views/homepanel/homeview';
 import Sidebar from '../../components/common/Sidebar/Sidebar';
 import CPagarView from '../../components/views/carteiraview/saida/cpagarview';
-import RecebidoView from '../../components/views/carteiraview/recebidos/recebidoView';
+
+import RecebidoViews from '../../components/views/carteiraview/recebidos/recebidoView';
 
 
 
@@ -14,8 +15,8 @@ const Carteira = () => {
 
       <Navbar /> 
       <HomeView />
-      <CPagarView />    
-      <RecebidoView />
+      <CPagarView />  
+      <RecebidoViews />
       <Footer />
       <Sidebar />
       </div>

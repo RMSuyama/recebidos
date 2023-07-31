@@ -23,11 +23,11 @@ const EvoluctionChart = () => {
 
         const groupByDate = (arr, isEntrada) => {
           return arr.reduce((acc, curr) => {
-            const date = curr.dataInsercao.toDate().setHours(0,0,0,0);
+            const date = new Date(curr.dataPagamento).setHours(0,0,0,0);
             if (!acc[date]) {
               acc[date] = 0;
             }
-            acc[date] += isEntrada ? curr.valor : -curr.valor;
+            acc[date] += isEntrada ? parseFloat(curr.valor) : -parseFloat(curr.valor);
             return acc;
           }, {});
         }
@@ -65,16 +65,33 @@ const EvoluctionChart = () => {
       height: 350,
       type: "line",
     },
-    title: {
-      text: "Evolução do Saldo Total",
-      align: "center",
-    },
+
     xaxis: {
       type: "datetime",
     },
     yaxis: {
+      labels: {
+        formatter: function(value) {
+          return `R$ ${value.toFixed(2)}`;
+        }
+      },
       tooltip: {
         enabled: true,
+        formatter: function(value) {
+          return `R$ ${value.toFixed(2)}`;
+        }
+      },
+    },
+    colors: ['#008FFB'],
+    stroke: {
+      curve: 'smooth'
+    },
+    dataLabels: {
+      enabled: false
+    },
+    tooltip: {
+      x: {
+        format: 'dd/MM/yyyy'
       },
     },
   };
@@ -82,6 +99,7 @@ const EvoluctionChart = () => {
   return (
     <div className="card p-5">
       <div className="card-body">
+        <div className='text-center' style={{fontWeight:'bold'}}>Evolução do Saldo Total</div>
         <ApexChart options={options} series={series} type="line" height={350} />
       </div>
     </div>

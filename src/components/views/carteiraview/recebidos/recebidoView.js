@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { firestore } from '../../../../config/firebase';
+import EntradaPdf from './entradaPdf';
 
-const RecebidoView = () => {
+const RecebidoViews = () => {
   const [dados, setDados] = useState([]);
   const [ordem, setOrdem] = useState('crescente');
   const [campo, setCampo] = useState('descricao');
@@ -105,11 +106,11 @@ const RecebidoView = () => {
         <table className="table table-striped">
           <thead>
             <tr>
-              <th scope="col">#</th>
+              <th scope="col">Id</th>
               <th scope="col">Colaborador</th>
               <th scope="col">Descrição</th>
-              <th scope="col">Data de Pagamento</th>
               <th scope="col">Valor</th>
+              <th scope="col">Data de Pagamento</th>
             </tr>
           </thead>
           <tbody>
@@ -118,22 +119,23 @@ const RecebidoView = () => {
                 <th scope="row">{item.id}</th>
                 <td>{item.colaborador}</td>
                 <td>{item.descricao}</td>
-                <td>{item.dataPagamento.toISOString().substring(0, 10)}</td>
                 <td>R${item.valor.toLocaleString('pt-BR', {minimumFractionDigits: 2})}</td>
+                <td>{item.dataPagamento.toISOString().substring(0, 10)}</td>
               </tr>
             ))}
             <tr>
               <th scope="row">Total</th>
-              <td colSpan="3"></td>
+              <td colSpan="2"></td>
               <td style={{backgroundColor:'lightgrey', fontWeight:'bold',}}>
                 R${totalEntradas.toLocaleString('pt-BR', {minimumFractionDigits: 2})}
               </td>
             </tr>
           </tbody>
         </table>
+        <EntradaPdf dados={dados}/>
       </div>
     </div>
   );
 };
 
-export default RecebidoView;
+export default RecebidoViews;
