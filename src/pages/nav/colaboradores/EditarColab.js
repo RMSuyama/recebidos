@@ -44,7 +44,7 @@ const EditarColaborador = () => {
 
   return (
     colaborador && (
-      <div className="card p-4">
+      <div className="card p-5">
         <h6>EDITAR COLABORADOR</h6>
         <form onSubmit={handleSubmit}>
           <input

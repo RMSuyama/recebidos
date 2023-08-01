@@ -43,7 +43,7 @@ const FormColaborador = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="card p-4">
+    <form onSubmit={handleSubmit} className="card p-5">
       <h6>CADASTRO DE COLABORADOR</h6>
       {error && <p style={{ color: 'red' }}>{error}</p>}
       <div className="mb-2">

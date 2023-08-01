@@ -18,7 +18,7 @@ function MyComponent() {
   }
 
   return (
-    <div className='card social-card p-4'>
+    <div className='card social-card p-5'>
       <button onClick={generatePDF} className='btn btn-outline-danger'>
         Gerar PDF
       </button>

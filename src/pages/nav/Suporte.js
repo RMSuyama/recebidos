@@ -10,7 +10,7 @@ const Suporte = () => {
   return (
     <div>
       <Navbar />      
-      <div className='cardcenter p-4 text-center'>
+      <div className='cardcenter p-5 text-center'>
         <h1>Estamos trabalhando nessa seção ainda!</h1>
         <MecaAnimation /> </div>
       <Footer />

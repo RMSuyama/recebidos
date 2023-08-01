@@ -53,7 +53,7 @@ const Tablepdf = () => {
   };
 
   return (
-    <div className="table-responsive card p-4">
+    <div className="table-responsive card p-5">
       <button onClick={generatePDF} className="btn btn-danger mb-4">
         Gerar PDF
       </button>
