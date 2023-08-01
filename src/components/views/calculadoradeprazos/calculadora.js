@@ -15,7 +15,7 @@ const AlertModal = ({ show, onClose, message }) => {
   return (
     <Modal show={show} onHide={onClose}>
       <Modal.Header closeButton>
-        <Modal.Title>Alerta</Modal.Title>
+        <Modal.Title>Alerta!</Modal.Title>
       </Modal.Header>
       <Modal.Body>{message}</Modal.Body>
       <Modal.Footer>
