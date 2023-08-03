@@ -5,6 +5,8 @@ import HomeView from '../../components/views/homepanel/homeview';
 import Newsletter from '../../components/views/newsletter';
 import Sidebar from '../../components/common/Sidebar/Sidebar';
 import CalendarView from '../../components/views/homepanel/calendar';
+import CalcPrescricao from '../../components/views/calculoprescpenal/calcPrescPenal';
+import MonetAtual from '../../components/views/atualizacaoMonetaria/atMonet';
 
 
 
@@ -13,6 +15,8 @@ const Home = () => {
     <div>
       <Navbar />      
       <HomeView />
+      <MonetAtual />
+      <CalcPrescricao />
       <CalendarView />
       <Newsletter />
       <Footer />
