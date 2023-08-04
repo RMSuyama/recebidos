@@ -32,21 +32,15 @@
 
 .sidebar-toggle {
     position: fixed;
-    left: 0;
-    top: 15%;
-    z-index: 1;
-    max-width: 1vw;
-    height: 3rem;
-    display: inline-block; /* Adiciona esta linha */
-
+    left: -2.6%;
+    top: 10%;
+    z-index: 9999;
+    width: 8rem; /* Ajusta a largura */
+    display: inline-block;
+    border-radius: 100%;
 }
+
 
 .sidebar a {
     color: black;
 }
-.sidebar a:hover {
-    color: #dc3545; /* Cor vermelha 'danger' do Bootstrap */
-}
-.custom-link:active {
-    color: #dc3545; /* Cor vermelha 'danger' do Bootstrap */
-  }

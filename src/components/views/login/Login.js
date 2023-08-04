@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import '../login/Login.css';
-import logo from '../../../../src/static/img/Colorful Artificial Intelligence Logo (1).png'
 import firebase from '../../../config/firebase';
 import 'firebase/auth';
 import FireAnimation from '../../common/Bobeiras/fogo';

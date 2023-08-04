@@ -13,6 +13,8 @@ import CalcFP from "../pages/side/CalculadoraFP";
 import GeradorProc from "../pages/side/GeradorProc";
 import LoginP from "../pages/LoginP";
 import DueDilligence from "../pages/side/duedilligence";
+import AtualizaMon from "../pages/side/AtualizaMonetaria";
+import Calcprescri from "../pages/side/Calculo de Prescrição";
 
 
 function ProtectedRoute({ element: Component, ...rest }) {
@@ -78,6 +80,8 @@ const Rotas = () => {
         <Route path="/calcfp" element={<ProtectedRoute element={CalcFP} />} />
         <Route path="/geradorproc" element={<ProtectedRoute element={GeradorProc} />} />
         <Route path="/duedilligence" element={<ProtectedRoute element={DueDilligence} />} />
+        <Route path="/atualizamon" element={<ProtectedRoute element={AtualizaMon} />} />
+        <Route path="/calcprescricao" element={<ProtectedRoute element={Calcprescri} />} />
 
       </Routes>
     </BrowserRouter>
