@@ -2,9 +2,9 @@ import React from 'react';
 import Navbar from '../../components/common/Navbar/Navbar';
 import Footer from '../../components/common/Footer/Footer';
 import HomeView from '../../components/views/homepanel/homeview';
-import Sidebar from '../../components/common/Sidebar/Sidebar';
 import CartChart from '../../components/views/carteiraview/CartChart';
 import EvoluctionChart from '../../components/views/carteiraview/TotalChart';
+import Menubar from '../../components/common/panel/MenuBar';
 
 
 
@@ -12,11 +12,11 @@ const Dashboard = () => {
   return (
     <div>
       <Navbar />  
+      <Menubar />
       <HomeView />  
-      <EvoluctionChart />
+      <EvoluctionChart /> 
       <CartChart />
       <Footer />
-      <Sidebar />
       </div>
   );
 }

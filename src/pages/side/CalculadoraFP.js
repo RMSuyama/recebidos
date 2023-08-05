@@ -1,9 +1,8 @@
 import React from 'react';
 import Navbar from '../../components/common/Navbar/Navbar';
 import Footer from '../../components/common/Footer/Footer';
-
 import CalcularBeneficios from '../../components/views/funcionarioPublico/calculadora';
-import Sidebar from '../../components/common/Sidebar/Sidebar';
+import Menubar from '../../components/common/panel/MenuBar';
 
 
 
@@ -12,10 +11,10 @@ const CalcFP = () => {
     <div>
 
       <Navbar />      
-        <CalcularBeneficios />
+      <Menubar />
+          <CalcularBeneficios />
 
       <Footer />
-      <Sidebar />
       </div>
   );
 }

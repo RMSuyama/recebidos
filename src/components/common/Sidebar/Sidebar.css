@@ -1,43 +1,28 @@
-.sidebar.open {
-    transform: translateX(0);
+/* Sidebar.css */
+
+.card-groups {
+    background-color: #f8f9fa; /* Define a cor de fundo do Sidebar */
+    width: 250px; /* Define a largura do Sidebar */
+    height: 100vh; /* Define a altura do Sidebar */
+    position: fixed; /* Fixa o Sidebar no lado da tela */
+    top: 0; /* Inicia no topo da página */
+    left: 0; /* Inicia no lado esquerdo da página */
+    overflow: auto; /* Permite a rolagem se o conteúdo for muito longo */
+    transition: all 0.5s; /* Adiciona uma animação para a abertura e fechamento do Sidebar */
+    z-index: 99999;
 }
 
-.sidebar {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    width: 20rem;
-    padding: 2rem;
-    background-color: #f8f9fa;
-    transform: translateX(-100%);
-    transition: transform 0.3s ease-out;
-    z-index: 1000; /* Adiciona esta linha */
+.card-group .nav-link {
+    color: #333; /* Define a cor dos links */
+    padding: 10px 20px; /* Adiciona um pouco de preenchimento em torno dos links */
 }
 
-
-.sidebar.open {
-    transform: translateX(0);
+.card-group .nav-link:hover {
+    color: #007BFF; /* Altera a cor dos links quando o mouse está sobre eles */
+    background-color: #eee; /* Altera a cor de fundo do link quando o mouse está sobre ele */
 }
 
-.sidebar-toggle {
-    position: fixed;
-    left: 92%;
-    top: 90%;
-    z-index: 1;
-    width: 10rem;
-}
-
-
-.sidebar a {
-    color: black;
-}
-
-.nav-link {
-    color: #333; /* Cor do texto */
-}
-
-.nav-link:hover {
-    color: #007bff; /* Cor do hover */
-    background-color: #f8f9fa; /* Cor do background do hover */
+.open {
+    width: 0; /* Define a largura do Sidebar para 0 quando ele está fechado */
+    overflow: hidden; /* Esconde o conteúdo quando o Sidebar está fechado */
 }

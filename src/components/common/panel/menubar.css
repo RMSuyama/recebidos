@@ -1,0 +1,4 @@
+.menubar .nav-link.active {
+    color: #007BFF; /* Cor do link quando ele está ativo */
+    font-weight: bold; /* Faz o texto do link ativo ficar em negrito */
+}

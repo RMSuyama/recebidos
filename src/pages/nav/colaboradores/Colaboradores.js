@@ -6,21 +6,21 @@ import FormColaborador from '../../../components/views/colaboradores/formColab';
 import TableColaboradores from '../../../components/views/colaboradores/colabview';
 import EditColaborador from '../../../components/views/colaboradores/editcolab';
 import Tablepdf from '../../../components/views/colaboradores/generatepdf';
-import Sidebar from '../../../components/common/Sidebar/Sidebar';
+import Menubar from '../../../components/common/panel/MenuBar';
 
 
 
 const Colaboradores = () => {
   return (
     <div>
-      <Navbar />      
+      <Navbar />  
+      <Menubar />    
       <HomeView />
       <FormColaborador />
       <TableColaboradores />
       <EditColaborador />
       <Tablepdf />
       <Footer />
-      <Sidebar />
       </div>
   );
 }
