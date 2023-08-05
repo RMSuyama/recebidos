@@ -26,14 +26,11 @@ const AdminSide = () => {
     return (
         <div className={`sidebar ${isOpen ? 'open' : ''}`} ref={ref}>
             <div className="card-groups">
-                <Nav defaultActiveKey="/home" className="flex-column">
-                    <Link className="nav-link my-2" to="/duedilligence" title="Due Dilligence">DD</Link>
-                    <Link className="nav-link my-2" to="/calcfp" title="Calculadora de Salário Funcionários Públicos">CSFP</Link>
-                    <Link className="nav-link my-2" to="/calculadora" title="Calculadora de Prazos">CP</Link>
-                    <Link className="nav-link my-2" to="/geradorproc" title="Gerador de Procuração">GP</Link>
-                    <Link className="nav-link my-2" to="/calcprescricao" title="Cálculo de Prescrição">CP</Link>
-                    <Link className="nav-link my-2" to="/atualizamon" title="Cálculo de Atualização Monetária">CAM</Link>
-                </Nav>
+            <Nav defaultActiveKey="/home" className="flex-column">
+                <Link className="nav-link my-2" to="/publicTenderSimulator" title="Simulador de Licitação">Fluxograma de Licitações</Link>
+                <Link className="nav-link my-2" to="/administrativeAppealGenerator" title="Gerador de Recurso Administrativo">Gerador de Recurso Administrativo</Link>
+                <Link className="nav-link my-2" to="/administrativeLawReference" title="Referência de Lei Administrativa">Referência de Lei Administrativa</Link>
+            </Nav>
             </div>
         </div>
     );

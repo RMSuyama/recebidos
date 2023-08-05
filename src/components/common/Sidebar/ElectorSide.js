@@ -3,7 +3,7 @@ import { Nav } from 'react-bootstrap';
 import './Sidebar.css'; 
 import { Link } from 'react-router-dom';
 
-const DueSide = () => {
+const ElectorSide = () => {
     const [isOpen, setIsOpen] = useState(true); // Define o estado inicial como aberto
     const ref = useRef(null);
 
@@ -27,14 +27,13 @@ const DueSide = () => {
         <div className={`sidebar ${isOpen ? 'open' : ''}`} ref={ref}>
             <div className="card-groups">
                 <Nav defaultActiveKey="/home" className="flex-column">
-                    <Link className="nav-link my-2" to="/ddChecklist" title="Checklist de Due Dilligence">Checklist de Due Dilligence</Link>
-                    <Link className="nav-link my-2" to="/financialAnalysis" title="Análise Financeira">Análise Financeira</Link>
-                    <Link className="nav-link my-2" to="/legalAssessment" title="Avaliação Legal">Avaliação Legal</Link>
-                    <Link className="nav-link my-2" to="/riskAssessment" title="Avaliação de Risco">Avaliação de Risco</Link>
+                    <Link className="nav-link my-2" to="/campaignSimulator" title="Painel de Sites - Eleitoral">Painel de Sites - Eleitoral</Link>
+                    <Link className="nav-link my-2" to="/votingMachine" title="Fluxograma Eleitoral">Fluxograma Eleitoral</Link>
+                    <Link className="nav-link my-2" to="/electionLawReference" title="Referência de Lei Eleitoral">RLE</Link>
                 </Nav>
             </div>
         </div>
     );
 };
 
-export default DueSide;
+export default ElectorSide;

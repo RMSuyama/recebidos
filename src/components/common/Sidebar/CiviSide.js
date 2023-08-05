@@ -3,7 +3,7 @@ import { Nav } from 'react-bootstrap';
 import './Sidebar.css'; 
 import { Link } from 'react-router-dom';
 
-const DueSide = () => {
+const CivilSide = () => {
     const [isOpen, setIsOpen] = useState(true); // Define o estado inicial como aberto
     const ref = useRef(null);
 
@@ -26,15 +26,19 @@ const DueSide = () => {
     return (
         <div className={`sidebar ${isOpen ? 'open' : ''}`} ref={ref}>
             <div className="card-groups">
-                <Nav defaultActiveKey="/home" className="flex-column">
-                    <Link className="nav-link my-2" to="/ddChecklist" title="Checklist de Due Dilligence">Checklist de Due Dilligence</Link>
-                    <Link className="nav-link my-2" to="/financialAnalysis" title="Análise Financeira">Análise Financeira</Link>
-                    <Link className="nav-link my-2" to="/legalAssessment" title="Avaliação Legal">Avaliação Legal</Link>
-                    <Link className="nav-link my-2" to="/riskAssessment" title="Avaliação de Risco">Avaliação de Risco</Link>
-                </Nav>
+            <Nav defaultActiveKey="/home" className="flex-column">
+                <Link className="nav-link my-2" to="/processGenerator" title="Gerador de Procuração">Gerador de Procuração</Link>
+                <Link className="nav-link my-2" to="/contractGenerator" title="Gerador de Contratos">Gerador de Contratos</Link>
+                <Link className="nav-link my-2" to="/debtCalculator" title="Calculadora de Dívidas">Calculadora de Dívidas</Link>
+                <Link className="nav-link my-2" to="/deadlineCalculator" title="Calculadora de Prazos Processuais">Calculadora de Prazos Processuais</Link>
+                <Link className="nav-link my-2" to="/damagesCalculator" title="Calculadora de Danos Morais">Calculadora de Danos Morais</Link>
+                <Link className="nav-link my-2" to="/inheritanceSimulator" title="Simulador de Meação - Inventário">Simulador de Meação - Inventário</Link>
+
+            </Nav> 
+
             </div>
         </div>
     );
 };
 
-export default DueSide;
+export default CivilSide;

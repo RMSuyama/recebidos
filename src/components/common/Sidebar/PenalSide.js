@@ -3,7 +3,7 @@ import { Nav } from 'react-bootstrap';
 import './Sidebar.css'; 
 import { Link } from 'react-router-dom';
 
-const DueSide = () => {
+const PenalSide = () => {
     const [isOpen, setIsOpen] = useState(true); // Define o estado inicial como aberto
     const ref = useRef(null);
 
@@ -26,15 +26,14 @@ const DueSide = () => {
     return (
         <div className={`sidebar ${isOpen ? 'open' : ''}`} ref={ref}>
             <div className="card-groups">
-                <Nav defaultActiveKey="/home" className="flex-column">
-                    <Link className="nav-link my-2" to="/ddChecklist" title="Checklist de Due Dilligence">Checklist de Due Dilligence</Link>
-                    <Link className="nav-link my-2" to="/financialAnalysis" title="Análise Financeira">Análise Financeira</Link>
-                    <Link className="nav-link my-2" to="/legalAssessment" title="Avaliação Legal">Avaliação Legal</Link>
-                    <Link className="nav-link my-2" to="/riskAssessment" title="Avaliação de Risco">Avaliação de Risco</Link>
-                </Nav>
+        <Nav defaultActiveKey="/home" className="flex-column">
+            <Link className="nav-link my-2" to="/crimeSimulator" title="Teses Penais">Teses Penais</Link>
+            <Link className="nav-link my-2" to="/penaltyCalculator" title="Calculadora de Penas">Calculadora de Penas</Link>
+            <Link className="nav-link my-2" to="/criminalLawReference" title="Referência de Lei Penal">Referência de Lei Penal</Link>
+        </Nav>
             </div>
         </div>
     );
 };
 
-export default DueSide;
+export default PenalSide;

@@ -2,3 +2,30 @@
     color: #007BFF; /* Cor do link quando ele está ativo */
     font-weight: bold; /* Faz o texto do link ativo ficar em negrito */
 }
+.navbar {
+    font-family: 'Spectral', serif;
+    padding-left: 1vw;
+
+
+  }
+
+  .navbar-nav{
+    padding-left: 4%;
+  }
+
+  #nome {
+    font-family: 'Spectral';
+    font-weight: bold;
+    padding-top: 1vw;
+    text-align: center;
+  }
+  
+  #tagline {
+    font-family: 'Spectral';
+    font-size: medium;
+    text-align: center;
+  }
+
+  .nav-item {
+    margin-right: 10px;
+}

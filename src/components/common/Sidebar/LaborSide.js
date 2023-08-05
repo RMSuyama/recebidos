@@ -3,7 +3,7 @@ import { Nav } from 'react-bootstrap';
 import './Sidebar.css'; 
 import { Link } from 'react-router-dom';
 
-const ControSide = () => {
+const LaborSide = () => {
     const [isOpen, setIsOpen] = useState(true); // Define o estado inicial como aberto
     const ref = useRef(null);
 
@@ -26,17 +26,15 @@ const ControSide = () => {
     return (
         <div className={`sidebar ${isOpen ? 'open' : ''}`} ref={ref}>
             <div className="card-groups">
-                <Nav defaultActiveKey="/home" className="flex-column">
-                    <Link className="nav-link my-2" to="/duedilligence" title="Due Dilligence">DD</Link>
-                    <Link className="nav-link my-2" to="/calcfp" title="Calculadora de Salário Funcionários Públicos">CSFP</Link>
-                    <Link className="nav-link my-2" to="/calculadora" title="Calculadora de Prazos">CP</Link>
-                    <Link className="nav-link my-2" to="/geradorproc" title="Gerador de Procuração">GP</Link>
-                    <Link className="nav-link my-2" to="/calcprescricao" title="Cálculo de Prescrição">CP</Link>
-                    <Link className="nav-link my-2" to="/atualizamon" title="Cálculo de Atualização Monetária">CAM</Link>
-                </Nav>
+  
+            <Nav defaultActiveKey="/home" className="flex-column">
+                <Link className="nav-link my-2" to="/laborCalculator" title="Calculadora de Direitos Trabalhistas">Calculadora de Direitos Trabalhistas</Link>
+                <Link className="nav-link my-2" to="/contractGenerator" title="Gerador de Contratos de Trabalho">Gerador de Contratos de Trabalho</Link>
+                <Link className="nav-link my-2" to="/laborLawReference" title="Referência de Lei Trabalhista">Referência de Lei Trabalhista</Link>
+            </Nav>
             </div>
         </div>
     );
 };
 
-export default ControSide;
+export default LaborSide;
