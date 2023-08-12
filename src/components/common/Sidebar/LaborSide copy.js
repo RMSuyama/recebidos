@@ -27,12 +27,10 @@ const LaborSide = () => {
         <div className={`sidebar ${isOpen ? 'open' : ''}`} ref={ref}>
             <div className="card-groups">
                 <Nav defaultActiveKey="/home" className="flex-column">
-                    <Link className="nav-link my-2" to="/duedilligence" title="Due Dilligence">DD</Link>
-                    <Link className="nav-link my-2" to="/calcfp" title="Calculadora de Salário Funcionários Públicos">CSFP</Link>
-                    <Link className="nav-link my-2" to="/calculadora" title="Calculadora de Prazos">CP</Link>
-                    <Link className="nav-link my-2" to="/geradorproc" title="Gerador de Procuração">GP</Link>
-                    <Link className="nav-link my-2" to="/calcprescricao" title="Cálculo de Prescrição">CP</Link>
-                    <Link className="nav-link my-2" to="/atualizamon" title="Cálculo de Atualização Monetária">CAM</Link>
+                    <Link className="nav-link my-2" to="/duedilligence" title="Due Dilligence">Due Dilligence</Link>
+                    <Link className="nav-link my-2" to="/calcfp" title="Calculadora de Salário Funcionários Públicos">Calculadora de Salário Funcionários Públicos</Link>
+                    <Link className="nav-link my-2" to="/calculadora" title="Calculadora de Prazos">Calculadora de Prazos</Link>
+                    <Link className="nav-link my-2" to="/atualizamon" title="Cálculo de Atualização Monetária">Cálculo de Atualização Monetária</Link>
                 </Nav>
             </div>
         </div>

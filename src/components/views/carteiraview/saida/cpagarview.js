@@ -106,7 +106,6 @@ const CPagarView = () => {
         <table className="table table-striped">
           <thead>
             <tr>
-              <th scope="col">Id</th>
               <th scope="col">Descrição</th>
               <th scope="col">Valor</th>
               <th scope="col">Data de Pagamento</th>
@@ -115,7 +114,6 @@ const CPagarView = () => {
           <tbody>
             {dados.map((item) => (
               <tr key={item.id}>
-                <th scope="row">{item.id}</th>
                 <td>{item.descricao}</td>
                 <td>R${item.valor.toLocaleString('pt-BR', {minimumFractionDigits: 2})}</td>
                 <td>{item.dataPagamento.toISOString().substring(0, 10)}</td>

@@ -29,7 +29,7 @@ const ElectorSide = () => {
                 <Nav defaultActiveKey="/home" className="flex-column">
                     <Link className="nav-link my-2" to="/campaignSimulator" title="Painel de Sites - Eleitoral">Painel de Sites - Eleitoral</Link>
                     <Link className="nav-link my-2" to="/votingMachine" title="Fluxograma Eleitoral">Fluxograma Eleitoral</Link>
-                    <Link className="nav-link my-2" to="/electionLawReference" title="Referência de Lei Eleitoral">RLE</Link>
+                    <Link className="nav-link my-2" to="/electionLawReference" title="Referência de Lei Eleitoral">Referência de Lei Eleitoral</Link>
                 </Nav>
             </div>
         </div>

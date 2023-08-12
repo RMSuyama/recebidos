@@ -27,6 +27,8 @@ const DueSide = () => {
         <div className={`sidebar ${isOpen ? 'open' : ''}`} ref={ref}>
             <div className="card-groups">
                 <Nav defaultActiveKey="/home" className="flex-column">
+                   <Link className="nav-link my-2" to="/duedilligence" title="Due Dilligence">Due Dilligence</Link>
+
                     <Link className="nav-link my-2" to="/ddChecklist" title="Checklist de Due Dilligence">Checklist de Due Dilligence</Link>
                     <Link className="nav-link my-2" to="/financialAnalysis" title="Análise Financeira">Análise Financeira</Link>
                     <Link className="nav-link my-2" to="/legalAssessment" title="Avaliação Legal">Avaliação Legal</Link>

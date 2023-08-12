@@ -106,7 +106,6 @@ const RecebidoViews = () => {
         <table className="table table-striped">
           <thead>
             <tr>
-              <th scope="col">Id</th>
               <th scope="col">Colaborador</th>
               <th scope="col">Descrição</th>
               <th scope="col">Valor</th>
@@ -116,7 +115,6 @@ const RecebidoViews = () => {
           <tbody>
             {dados.map((item) => (
               <tr key={item.id}>
-                <th scope="row">{item.id}</th>
                 <td>{item.colaborador}</td>
                 <td>{item.descricao}</td>
                 <td>R${item.valor.toLocaleString('pt-BR', {minimumFractionDigits: 2})}</td>

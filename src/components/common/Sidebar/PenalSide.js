@@ -27,6 +27,7 @@ const PenalSide = () => {
         <div className={`sidebar ${isOpen ? 'open' : ''}`} ref={ref}>
             <div className="card-groups">
         <Nav defaultActiveKey="/home" className="flex-column">
+            <Link className="nav-link my-2" to="/calcprescricao" title="Cálculo de Prescrição">Cálculo de Prescrição</Link>
             <Link className="nav-link my-2" to="/crimeSimulator" title="Teses Penais">Teses Penais</Link>
             <Link className="nav-link my-2" to="/penaltyCalculator" title="Calculadora de Penas">Calculadora de Penas</Link>
             <Link className="nav-link my-2" to="/criminalLawReference" title="Referência de Lei Penal">Referência de Lei Penal</Link>

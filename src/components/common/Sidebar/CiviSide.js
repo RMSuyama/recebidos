@@ -27,6 +27,8 @@ const CivilSide = () => {
         <div className={`sidebar ${isOpen ? 'open' : ''}`} ref={ref}>
             <div className="card-groups">
             <Nav defaultActiveKey="/home" className="flex-column">
+                <Link className="nav-link my-2" to="/calculadora" title="Calculadora de Prazos">Calculadora de Prazos</Link>
+
                 <Link className="nav-link my-2" to="/processGenerator" title="Gerador de Procuração">Gerador de Procuração</Link>
                 <Link className="nav-link my-2" to="/contractGenerator" title="Gerador de Contratos">Gerador de Contratos</Link>
                 <Link className="nav-link my-2" to="/debtCalculator" title="Calculadora de Dívidas">Calculadora de Dívidas</Link>

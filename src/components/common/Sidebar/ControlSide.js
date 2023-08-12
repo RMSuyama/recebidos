@@ -27,6 +27,8 @@ const ControlSide = () => {
         <div className={`sidebar ${isOpen ? 'open' : ''}`} ref={ref}>
             <div className="card-groups">
                 <Nav defaultActiveKey="/home" className="flex-column">
+                    <Link className="nav-link my-2" to="/geradorproc" title="Gerador de Procuração">Gerador de Procuração</Link>
+                    <Link className="nav-link my-2" to="/atualizamon" title="Cálculo de Atualização Monetária">Cálculo de Atualização Monetária</Link>
                     <Link className="nav-link my-2" to="/riskManagement" title="Gerenciamento de Riscos">Gerenciamento de Riscos</Link>
                     <Link className="nav-link my-2" to="/complianceChecklist" title="Checklist de Conformidade">Checklist de Conformidade</Link>
                     <Link className="nav-link my-2" to="/internalProcedureGenerator" title="Gerador de Procedimentos Internos">Gerador de Procedimentos Internos</Link>

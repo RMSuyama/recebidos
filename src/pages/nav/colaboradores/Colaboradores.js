@@ -7,6 +7,7 @@ import TableColaboradores from '../../../components/views/colaboradores/colabvie
 import EditColaborador from '../../../components/views/colaboradores/editcolab';
 import Tablepdf from '../../../components/views/colaboradores/generatepdf';
 import Menubar from '../../../components/common/panel/MenuBar';
+import PerformanceChart from '../../../components/views/carteiraview/PerformanceChart';
 
 
 
@@ -16,6 +17,7 @@ const Colaboradores = () => {
       <Navbar />  
       <Menubar />    
       <HomeView />
+      <PerformanceChart />
       <FormColaborador />
       <TableColaboradores />
       <EditColaborador />
