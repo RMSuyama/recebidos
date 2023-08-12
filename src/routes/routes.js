@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Route, BrowserRouter, Routes, Navigate } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import firebase from "../config/firebase";
 import "firebase/auth";
 import Carteira from "../pages/nav/Carteira";
@@ -16,8 +16,7 @@ import DueDilligence from "../pages/side/duedilligence";
 import AtualizaMon from "../pages/side/AtualizaMonetaria";
 import Calcprescri from "../pages/side/Calculo de Prescrição";
 
-
-function ProtectedRoute({ element: Component, ...rest }) {
+function ProtectedRoute({ children }) {
   const [authenticated, setAuthenticated] = useState(false);
   const [loading, setLoading] = useState(true);
 
@@ -36,55 +35,54 @@ function ProtectedRoute({ element: Component, ...rest }) {
 
   if (loading) {
     return <div>
-<div className="spinner-grow text-primary" role="status">
-  <span className="visually-hidden">Loading...</span>
-</div>
-<div className="spinner-grow text-secondary" role="status">
-  <span className="visually-hidden">Loading...</span>
-</div>
-<div className="spinner-grow text-success" role="status">
-  <span className="visually-hidden">Loading...</span>
-</div>
-<div className="spinner-grow text-danger" role="status">
-  <span className="visually-hidden">Loading...</span>
-</div>
-<div className="spinner-grow text-warning" role="status">
-  <span className="visually-hidden">Loading...</span>
-</div>
-<div className="spinner-grow text-info" role="status">
-  <span className="visually-hidden">Loading...</span>
-</div>
-<div className="spinner-grow text-dark" role="status">
-  <span className="visually-hidden">Loading...</span>
-</div>
+      <div className="spinner-grow text-primary" role="status">
+        <span className="visually-hidden">Loading...</span>
+      </div>
+      <div className="spinner-grow text-secondary" role="status">
+        <span className="visually-hidden">Loading...</span>
+      </div>
+      <div className="spinner-grow text-success" role="status">
+        <span className="visually-hidden">Loading...</span>
+      </div>
+      <div className="spinner-grow text-danger" role="status">
+        <span className="visually-hidden">Loading...</span>
+      </div>
+      <div className="spinner-grow text-warning" role="status">
+        <span className="visually-hidden">Loading...</span>
+      </div>
+      <div className="spinner-grow text-info" role="status">
+        <span className="visually-hidden">Loading...</span>
+      </div>
+      <div className="spinner-grow text-dark" role="status">
+        <span className="visually-hidden">Loading...</span>
+      </div>
 
 
     </div>;
   }
 
-  return authenticated ? <Component {...rest} /> : <Navigate to="/" replace />;
+  return authenticated ? children : <Navigate to="/" />;
 }
 
 const Rotas = () => {
   return (
-    <BrowserRouter>
+    <Router>
       <Routes>
         <Route path="/" element={<LoginP />} exact />
-        <Route path="/home" element={<ProtectedRoute element={Home} />} />
-        <Route path="/carteira" element={<ProtectedRoute element={Carteira} />} />
-        <Route path="/colaboradores" element={<ProtectedRoute element={Colaboradores} />} />
-        <Route path="/dashboard" element={<ProtectedRoute element={Dashboard} />} />
-        <Route path="/suporte" element={<ProtectedRoute element={Suporte} />} />
-        <Route path="/calculadora" element={<ProtectedRoute element={Calculadora} />} />
-        <Route path="/editar-colaborador/:id" element={<ProtectedRoute element={EditarColaborador} />} />
-        <Route path="/calcfp" element={<ProtectedRoute element={CalcFP} />} />
-        <Route path="/geradorproc" element={<ProtectedRoute element={GeradorProc} />} />
-        <Route path="/duedilligence" element={<ProtectedRoute element={DueDilligence} />} />
-        <Route path="/atualizamon" element={<ProtectedRoute element={AtualizaMon} />} />
-        <Route path="/calcprescricao" element={<ProtectedRoute element={Calcprescri} />} />
-
+        <Route path="/home" element={<ProtectedRoute><Home /></ProtectedRoute>} />
+        <Route path="/carteira" element={<ProtectedRoute><Carteira /></ProtectedRoute>} />
+        <Route path="/colaboradores" element={<ProtectedRoute><Colaboradores /></ProtectedRoute>} />
+        <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+        <Route path="/suporte" element={<ProtectedRoute><Suporte /></ProtectedRoute>} />
+        <Route path="/calculadora" element={<ProtectedRoute><Calculadora /></ProtectedRoute>} />
+        <Route path="/editar-colaborador/:id" element={<ProtectedRoute><EditarColaborador /></ProtectedRoute>} />
+        <Route path="/calcfp" element={<ProtectedRoute><CalcFP /></ProtectedRoute>} />
+        <Route path="/geradorproc" element={<ProtectedRoute><GeradorProc /></ProtectedRoute>} />
+        <Route path="/duedilligence" element={<ProtectedRoute><DueDilligence /></ProtectedRoute>} />
+        <Route path="/atualizamon" element={<ProtectedRoute><AtualizaMon /></ProtectedRoute>} />
+        <Route path="/calcprescricao" element={<ProtectedRoute><Calcprescri /></ProtectedRoute>} />
       </Routes>
-    </BrowserRouter>
+    </Router>
   );
 };
 

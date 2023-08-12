@@ -20,13 +20,16 @@ const PerformanceChart = () => {
         const colaboradores = Array.from(new Set(contasReceberData.map(item => item.colaborador)));
         
         const groupedData = colaboradores.map(colaborador => {
-          const vendasDoColaborador = contasReceberData.filter(item => item.colaborador === colaborador);
+          const vendasDoColaborador = contasReceberData
+            .filter(item => item.colaborador === colaborador)
+            .sort((a, b) => a.dataPagamento - b.dataPagamento); // Ordenando por data
           
           return {
             name: colaborador,
             data: vendasDoColaborador.map(venda => ({x: venda.dataPagamento.toISOString().split('T')[0], y: venda.valor}))
           };
         });
+        
 
         setSeries(groupedData);
       } catch (error) {
@@ -43,7 +46,8 @@ const PerformanceChart = () => {
       type: "line",
     },
     xaxis: {
-      type: 'datetime'
+      type: 'datetime',
+      tickPlacement: 'on'
     },
     dataLabels: {
       enabled: false

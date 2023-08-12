@@ -9,6 +9,7 @@ import ElectorSide from '../Sidebar/ElectorSide';
 import CivilSide from '../Sidebar/CiviSide';
 import PenalSide from '../Sidebar/PenalSide';
 import LaborSide from '../Sidebar/LaborSide';
+import LgpdSide from '../Sidebar/LgpdSide';
 
 const Menubar = () => {
     const [activeItem, setActiveItem] = useState(null);  // Inicia com null
@@ -22,6 +23,7 @@ const Menubar = () => {
         { name: "Processo Civil", sidebar: "CivilSide" },
         { name: "Processo Penal", sidebar: "PenalSide" },
         { name: "Trabalhista", sidebar: "LaborSide" },
+        { name: "LGPD", sidebar: "LgpdSide" },
     ];
     
 
@@ -71,6 +73,8 @@ const Menubar = () => {
                         {activeItem === 'CivilSide' && <CivilSide />}
                         {activeItem === 'PenalSide' && <PenalSide />}
                         {activeItem === 'LaborSide' && <LaborSide />}
+                        {activeItem === 'LgpdSide' && <LgpdSide />}
+
                     </div>
 
             </div>
